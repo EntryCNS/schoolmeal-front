@@ -1,0 +1,61 @@
+@font-face {
+    font-family: '도현체.ttf';
+    src: url(./fonts/배달의민족폰트/도현체.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "도현체.ttf";
+  }
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.container{
+    display: flex;
+}
+
+.img{
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/loginImg.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.transparent-box{
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.4;
+}
+
+.mainColor{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100vh;
+  background-color: #5FBEBB;
+}
+
+.title{
+    z-index: 3;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}

@@ -1,22 +1,31 @@
 @font-face {
-    font-family: '도현체.ttf';
-    src: url(./fonts/배달의민족폰트/도현체.ttf);
+    font-family: '한나는열한살체.ttf';
+    src: url(./fonts/배달의민족폰트/한나는열한살체.ttf);
     font-weight: normal;
     font-style: normal;
+}    
+@font-face {
+    font-family: '한나체air.ttf';
+    src: url(./fonts/배달의민족폰트/한나체air.ttf);
+    font-weight: normal;
+    font-style: normal; 
 }
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "도현체.ttf";
-  }
+    font-family: "한나는열한살체.ttf";
+}
 body{
     width: 100%;
     height: 100%;
 }
 
-.container{
+.container-right{
     display: flex;
+    z-index: 3;
+    width: 100%;
+    height: 100vh;
 }
 
 .img{
@@ -39,23 +48,52 @@ body{
     width: 100%;
     height: 100vh;
     background-color: black;
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .mainColor{
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100vh;
-  background-color: #5FBEBB;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    border-right: 200px solid transparent;
+    border-bottom: 100vh solid #5FBEBB;
 }
 
-.title{
-    z-index: 3;
+.title-box{
+    margin-left: auto;
+    z-index:3;
     color: white;
-    width: 100%;
+    width: 100vh;
     height: 100vh;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainTitle{
+    display: flex;
+    text-align: center;
+}
+
+.title-box h1{
+    font-size: 80px;
+}
+
+.title-box h2{
+    margin-top: 24px;
+    font-size: 56px;
+}
+
+.title-box p{
+    font-size: 26px;
+    font-family: "한나체air.ttf";
+    margin-bottom:12px;
+} 
+
+@media screen {
+    
 }

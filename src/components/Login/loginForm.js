@@ -48,8 +48,9 @@ function LoginForm() {
                     <input
                      value={password}
                      onChange={(e)=>{
-                         setPassword(e.target.value)
+                         setPassword(e.target.value);
                      }}
+                     
                         type="password" placeholder="비밀번호" />
                     <div className="bottomLine"></div>
                 </div>
@@ -68,7 +69,7 @@ function LoginForm() {
                     <a href="#">아이디/비밀번호 찾기</a>
                 </div>
                 <div className="join">
-                    <Link to="/register">회원가입</Link>
+                    <Link to="/registerMain">회원가입</Link>
                 </div>
             </div>
             <NotificationContainer/>

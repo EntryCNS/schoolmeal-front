@@ -1,14 +1,14 @@
 import React from "react";
 import "../../styles/loginMain.css";
-import LoginForm from "./loginForm";
-function LoginMain() {
+import RegisterForm from "./registerForm";
+function RegisterMain() {
     return (
         <body>
             <div className="container-left">
                 <div className="transparent-box"></div>
                 <div className="img"></div>
                 <div className="mainColor">
-                <LoginForm/>
+                <RegisterForm/>
                 </div>
             </div>
             <div className="container-right">
@@ -26,4 +26,4 @@ function LoginMain() {
     )
 }
 
-export default LoginMain;
+export default RegisterMain;

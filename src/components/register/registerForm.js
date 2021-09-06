@@ -22,11 +22,14 @@ function RegisterForm() {
                 id,
                 password,
                 email,
+                birth,
 
             })
             .then()
-            .catch((ex) => {
-                NotificationContainer.warnig('다시 시도해 주세요 :(', "계정가입 실패", 2200);
+            .catch((ex)=>{
+                let resp = ex.response
+                console.log(resp)
+                NotificationManager.warning('다시 시도해 주세요 :(', "잘못된 ID 또는 비밀번호", 2200)
             })
     }
 
@@ -36,12 +39,18 @@ function RegisterForm() {
             <div className="register-container">
                 <div className="register-input-box">
                     <input
-                        value={id}
+                        value={name}
                         onChange={e => {
                             setName(e.target.value);
                         }}
                         placeholder="이름" />
                     <div className="bottomLine" />
+                    <input
+                     value={id}
+                        onChange={e=>{
+                            setId(e.target.value);
+                        }}
+                        placeholder="아이디"/>
                     <input
                     value={birth} 
                     onChange ={e=>{
@@ -68,6 +77,7 @@ function RegisterForm() {
                     type="submit" placeholder="가입" />
                 </div>
             </div>
+            <NotificationContainer/>
         </form>
     )
 }

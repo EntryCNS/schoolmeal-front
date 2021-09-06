@@ -1,15 +1,32 @@
-.register-container{
+@font-face {
+    font-family: '한나는열한살체.ttf';
+    src: url(./fonts/배달의민족폰트/한나는열한살체.ttf);
+    font-weight: normal;
+    font-style: normal;
+}  
 
+.register-container{
+    width: 100%;
+    height: 100vh;
+    background-color: tomato;
 }
 
 .register-input-box{
-    width: 100%;
-    height: 100vh;
-    background-color: #5FBEBB;
+    width: 400px;
+    height: 500px;
+    background-color: gray;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.bamin-font6{
+    font-family: "한나는열한살체.ttf";
+}
+
+.btn{
+    border-radius: 7px;
 }
 
 .email_btn{

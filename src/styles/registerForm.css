@@ -1,12 +1,19 @@
-form{
+.register-container{
+
 }
-.container{
+
+.register-input-box{
     width: 100%;
     height: 100vh;
-    background-color: tomato;
+    background-color: #5FBEBB;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
-.input-box{}
+
+.email_btn{
+    background-color: white;
+    color: black;
+    width: 100px;
+}

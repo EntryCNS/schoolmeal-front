@@ -21,7 +21,6 @@ function LoginForm() {
         })
         .then()
         .catch((ex)=>{
-            // console.log("실패");
             let resp = ex.response
             console.log(resp)
             NotificationManager.warning('다시 시도해 주세요 :(', "잘못된 ID 또는 비밀번호", 2200)

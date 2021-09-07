@@ -38,7 +38,6 @@ function RegisterForm() {
             <div className="register-container">
                 <div className="register-input-box">
                     <input
-                        className=""
                         value={name}
                         onChange={e => {
                             setName(e.target.value);
@@ -64,7 +63,9 @@ function RegisterForm() {
                             setEmail(e.target.value);
                         }}
                         placeholder="이메일" type="email" />
-                    <input className="email_btn bamin-font6 btn" type="submit" value="인증" />
+                    <input
+                     className="email_btn bamin-font6 btn" 
+                     type="submit" value="인증" />
                     <input
                         value={password}
                         onChange={e => {

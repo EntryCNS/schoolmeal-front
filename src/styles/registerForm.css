@@ -1,19 +1,54 @@
-.register-container{
+@font-face {
+    font-family: '한나는열한살체.ttf';
+    src: url(./fonts/배달의민족폰트/한나는열한살체.ttf);
+    font-weight: normal;
+    font-style: normal;
+}  
 
+.register-container{
+    width: 100%;
+    height: 100vh;
+    background-color: blue;
 }
 
 .register-input-box{
-    width: 100%;
-    height: 100vh;
-    background-color: #5FBEBB;
+    width: 600px;
+    height: 600px;
+    background-color: white;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    border-radius: 12px;
+}
+
+.bamin-font6{
+    font-family: "한나는열한살체.ttf";
+}
+
+.register-input-box input{
+    /* background-color: white; */
+    color: #5FBEBB;
+}
+
+.register-input-box input::placeholder{
+    color: #5FBEBB;
+}
+
+.btn{
+    border-radius: 7px;
+    background-color: #5FBEBB;
 }
 
 .email_btn{
-    background-color: white;
+    /* background-color: white;// */
     color: black;
     width: 100px;
+}
+
+.register-input-box .bottomLine{
+    background-color: #5FBEBB;
+    display: flex;
+    width: 150px;
+    height: 2px;
 }

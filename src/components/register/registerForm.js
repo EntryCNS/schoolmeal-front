@@ -23,10 +23,9 @@ function RegisterForm() {
                 password,
                 email,
                 birth,
-
             })
             .then()
-            .catch((ex)=>{
+            .catch((ex) => {
                 let resp = ex.response
                 console.log(resp)
                 NotificationManager.warning('다시 시도해 주세요 :(', "잘못된 ID 또는 비밀번호", 2200)
@@ -46,38 +45,41 @@ function RegisterForm() {
                         placeholder="이름" />
                     <div className="bottomLine" />
                     <input
-                     value={id}
-                        onChange={e=>{
+                        value={id}
+                        onChange={e => {
                             setId(e.target.value);
                         }}
-                        placeholder="아이디"/>
+                        placeholder="아이디" />
                     <input
-                    value={birth} 
-                    onChange ={e=>{
-                        setBirth(e.target.value);
-                    }}
-                    placeholder="생년월일" />
+                        value={birth}
+                        onChange={e => {
+                            setBirth(e.target.value);
+                        }}
+                        placeholder="생년월일" />
                     <div className="bottomLine" />
                     <input
                         value={email}
-                        onChange={e=>{
+                        onChange={e => {
                             setEmail(e.target.value);
-                        }}                    
-                    placeholder="이메일" type="email" />
-                    <input className="email_btn" type="submit" value="인증" />
+                        }}
+                        placeholder="이메일" type="email" />
                     <input
-                    value={password}
-                    onChange={e=>{
-                        setEmail(e.target.value);
-                    }}
-                    type="password" placeholder="비밀번호" />
+                     className="email_btn bamin-font6 btn" 
+                     type="submit" value="인증" />
+                    <input
+                        value={password}
+                        onChange={e => {
+                            setPassword(e.target.value);
+                        }}
+                        type="password" placeholder="비밀번호" />
                     <input type="password" placeholder="비밀번호 확인" />
-                    <input 
-                    onClick={postData}
-                    type="submit" placeholder="가입" />
+                    <input
+                        className="bamin-font6 btn submit_btn"
+                        onClick={postData}
+                        type="submit" value="가입"/>
                 </div>
             </div>
-            <NotificationContainer/>
+            <NotificationContainer />
         </form>
     )
 }

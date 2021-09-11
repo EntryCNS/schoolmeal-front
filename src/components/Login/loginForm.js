@@ -6,20 +6,27 @@ import axios from "axios";
 import apiConfig from "../../config/apiConfig";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { Link } from 'react-router-dom'
+import CustomInput from "../../custom/CustomInput"
+import SignUpmodal from "../modals/signUpmodal";
 
-
-function LoginForm() {
+function LoginForm(props) {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+    const [ signUpModalOn, setSignUpModalOn ] = useState(true)
 
-    const postData = (e) => {
-        e.preventDefault();
+    const postData = () => {
         axios
         .post(`${apiConfig.API_ENDPOINT}/auth/login`, {
             idOrEmail: id,
             password,
         })
-        .then()
+        .then(((e)=>{
+            NotificationManager.success('로그인에 성공하였습니다 :D', "성공!", 2200)
+            const resData = e.data
+            console.log(resData)
+            localStorage.setItem('jwtToken', resData.body.jwtToken)
+        })
+        )
         .catch((ex)=>{
             let resp = ex.response
             console.log(resp)
@@ -31,36 +38,43 @@ function LoginForm() {
         NotificationManager.warning(' 준비중이랍니다', 'Dauth는..', 2200)
     }
 
+    const modalToggle = () => setSignUpModalOn((prev) => !prev)
+
     return (
-        <div className="login-container">
-            <div className="input-box">
+        <>
+        <div className="login-container ">
+            <div className="input-box ">
                 <div id="id">
-                    <input
-                       value={id}
-                       onChange={(e)=>{
-                          setId(e.target.value) 
-                       }} 
-                    placeholder="아이디 또는 이메일"/>
+                    <CustomInput
+                    className="textInput"
+                    type="text"
+                    placeholder="아이디 또는 이메일"
+                    value={id}
+                    setValue={setId}
+                     />
                     <div className="bottomLine"></div>
                 </div>
                 <div id="password">
-                    <input
-                     value={password}
-                     onChange={(e)=>{
-                         setPassword(e.target.value);
-                     }}
-                     
-                        type="password" placeholder="비밀번호" />
+                    <CustomInput
+                    className="textInput"
+                    value={password}
+                    setValue={setPassword}
+                    type="password" 
+                    placeholder="비밀번호" />
                     <div className="bottomLine"></div>
                 </div>
             </div>
             <div className="button-box">
-                <div className="login-btn">
-                    <button 
-                    onClick={postData} >로그인</button>
+                <div className="login">
+                    <input 
+                    className="login_btn"
+                    value="로그인"
+                    type="submit"
+                    onClick={postData}
+                    />
                 </div>
                 <div className="dauth-btn">
-                    <button onClick={toDauth}>Dauth로 로그인</button>
+                    <input className="login_btn" type="submit" onClick={toDauth} value="Dauth로 로그인"/>
                 </div>
             </div>
             <div className="a-box">
@@ -68,11 +82,14 @@ function LoginForm() {
                     <a href="#">아이디/비밀번호 찾기</a>
                 </div>
                 <div className="join">
-                    <Link to="/registerMain">회원가입</Link>
+                    {/* <Link to="/registerMain">회원가입</Link> */}
+                    <a onClick={modalToggle}>회원가입</a>
                 </div>
             </div>
             <NotificationContainer/>
         </div>
+        {signUpModalOn && <SignUpmodal modalToggle={modalToggle}/>}
+        </>
     )
 }
 

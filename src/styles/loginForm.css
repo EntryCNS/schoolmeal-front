@@ -5,6 +5,8 @@
     font-style: normal;
 }   
 
+
+
 .login-container {
     width: 100%;
     height: 100vh;
@@ -15,7 +17,7 @@
     align-items: center;
 }
 
-input{
+.textInput{
   width: 340px;
   height: 45px;
   background-color: #5FBEBB;
@@ -37,7 +39,7 @@ input:focus{
     outline: none;
 }
 
-button{
+.login_btn{
     width: 340px;
     height: 50px;
     margin: 10px;
@@ -45,6 +47,9 @@ button{
     color: #5FBEBB;
     font-size: 20px;
     border-style: none;
+    background-color: white;
+    font-family: "한나는열한살체.ttf";
+    text-align: center;
 }
 
 .bottomLine {
@@ -68,4 +73,17 @@ a{
 
 .find{
     margin-bottom: 10px;
+}
+
+.modalBase {
+    z-index: 1000;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.15);
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

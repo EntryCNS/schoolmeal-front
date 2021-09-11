@@ -5,10 +5,22 @@
     font-style: normal;
 }  
 
-.register-container{
+.register_modal{
     width: 100%;
     height: 100vh;
-    background-color: blue;
+    background-color: black;
+    opacity: 0.1;
+    z-index: 0;    
+
+}
+
+.register-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    /* z-index: 1; */
 }
 
 .register-input-box{
@@ -21,34 +33,40 @@
     align-items: center;
     border-radius: 12px;
 }
-
+.register-input-text{
+    width: 40%;
+    height: 4vh;
+    background-color: white;
+    color: #5FBEBB;
+    border: none;
+    margin-top: 20px;
+}
 .bamin-font6{
     font-family: "한나는열한살체.ttf";
-}
-
-.register-input-box input{
-    /* background-color: white; */
-    color: #5FBEBB;
 }
 
 .register-input-box input::placeholder{
     color: #5FBEBB;
 }
 
-.btn{
-    border-radius: 7px;
-    background-color: #5FBEBB;
+.register-input-box input:focus{
+        outline: none;
 }
 
-.email_btn{
-    /* background-color: white;// */
-    color: black;
-    width: 100px;
-}
-
-.register-input-box .bottomLine{
+.register-bottomLine{
     background-color: #5FBEBB;
-    display: flex;
-    width: 150px;
+    width: 40%;
     height: 2px;
+    color: black;
+}
+
+.register_btn{
+    width: 40%;
+    height: 35px;
+    font-size: 25px;
+    color: white;
+    background-color: #5FBEBB;
+    border: none;
+    border-radius: 7px;
+    margin: 50px;
 }

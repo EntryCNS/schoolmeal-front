@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
-import 'react-notifications/lib/notifications.css'
+import React, { useState } from "react";
+import {Modal,Button} from"react-bootstrap";
+import RegisterForm from "../register/registerForm";
 import axios from "axios";
 import apiConfig from "../../config/apiConfig";
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import { Link } from 'react-router-dom'
 import "../../styles/registerForm.css"
 
-function RegisterForm() {
-
+function SignUpmodal(props){
+    console.log(typeof props.modalToggle)
+    console.log(props)
     const [name, setName] = useState("");
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
@@ -32,12 +34,15 @@ function RegisterForm() {
             })
     }
 
-    return (
-
-        <form>
-            <div className="register_modal"></div>
-            <div className="register-container">
-                <div className="register-input-box">
+    return(
+        <div className="modalBase" onClick={(event) => {
+            console.log('close'); 
+            if(event.target === event.currentTarget)
+                props.modalToggle()
+            
+            }}>
+            <div className="modalForm">
+            <div className="register-input-box">
                     <input
                         value={name}
                         className="register-input-text"
@@ -94,9 +99,8 @@ function RegisterForm() {
                         type="submit" value="가입" />
                 </div>
             </div>
-            <NotificationContainer />
-        </form>
-    )
+        </div>
+    );
 }
 
-export default RegisterForm
+export default SignUpmodal

@@ -12,7 +12,7 @@ import SignUpmodal from "../modals/signUpmodal";
 function LoginForm(props) {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
-    const [ signUpModalOn, setSignUpModalOn ] = useState(true)
+    const [ signUpModalOn, setSignUpModalOn ] = useState(false)
 
     const postData = () => {
         axios

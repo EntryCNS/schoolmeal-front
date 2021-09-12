@@ -78,7 +78,7 @@ a{
 .modalBase {
     z-index: 1000;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.50);
     top: 0;
     left: 0;
     height: 100vh;

@@ -1,11 +1,11 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useCallback } from "react";
 import "../../styles/loginMain.css";
 import LoginForm from "./loginForm";
 import SignUpmodal from './../modals/signUpmodal'
 
 function LoginMain() {
     const [signUpModalOn,setSignUpModalOn] =  useState(false);
-
+    
     return (
         <div>
             {/* <SignUpmodal show={true} hide={setSignUpModalOn}/> */}
@@ -13,7 +13,7 @@ function LoginMain() {
                 <div className="transparent-box"></div>
                 <div className="img"></div>
                 <div className="mainColor">
-                <LoginForm setSignUpModalOn={setSignUpModalOn}/>
+                <LoginForm signUpModalOn={setSignUpModalOn}/>
                 </div>
             </div>
             <div className="container-right">

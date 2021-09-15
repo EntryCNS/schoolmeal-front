@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import {Modal,Button} from"react-bootstrap";
-import RegisterForm from "../register/registerForm";
+import React, { useCallback, useEffect, useState } from "react";
+// import RegisterForm from "../register/registerForm";
 import axios from "axios";
 import apiConfig from "../../config/apiConfig";
 import { NotificationContainer, NotificationManager } from 'react-notifications';
@@ -16,7 +15,7 @@ function SignUpmodal(props){
     const [email, setEmail] = useState("");
     const [birth, setBirth] = useState("");
 
-    const postData = (e) => {
+    const postData = useCallback((e) => {
         e.preventDefault();
         axios
             .post(`${apiConfig.API_ENDPOINT}/auth/signup`, {
@@ -32,7 +31,7 @@ function SignUpmodal(props){
                 console.log(resp)
                 NotificationManager.warning('다시 시도해 주세요 :(', "잘못된 ID 또는 비밀번호", 2200)
             })
-    }
+    },[name,id,password,email,birth])
 
     return(
         <div className="modalBase" onClick={(event) => {

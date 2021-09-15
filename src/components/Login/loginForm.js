@@ -1,5 +1,5 @@
 import { expressionStatement } from "@babel/types";
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useCallback } from "react";
 import "../../styles/loginForm.css"
 import 'react-notifications/lib/notifications.css'
 import axios from "axios";
@@ -14,7 +14,7 @@ function LoginForm(props) {
     const [password, setPassword] = useState("");
     const [ signUpModalOn, setSignUpModalOn ] = useState(false)
 
-    const postData = () => {
+    const postData = useCallback(() => {
         axios
         .post(`${apiConfig.API_ENDPOINT}/auth/login`, {
             idOrEmail: id,
@@ -32,18 +32,20 @@ function LoginForm(props) {
             console.log(resp)
             NotificationManager.warning('다시 시도해 주세요 :(', "잘못된 ID 또는 비밀번호", 2200)
         })
-    };
+    },[id,password]);
 
-    const toDauth = () => {
+    const toDauth = useCallback(() => {
         NotificationManager.warning(' 준비중이랍니다', 'Dauth는..', 2200)
-    }
+    },[])
 
-    const modalToggle = () => setSignUpModalOn((prev) => !prev)
-
+    const modalToggle = useCallback(() => setSignUpModalOn((state) => !state),[]); //스테이트는 바뀌지 않고 그냥 부호만 바뀌는 것
+    // const modalToggle = useCallback(() => setSignUpModalOn(signUpModalOn?false:true),[signUpModalOn]);
+    // setValue("value"); setValue((prev)=>{return !prev;})
     return (
         <>
         <div className="login-container ">
             <div className="input-box ">
+                
                 <div id="id">
                     <CustomInput
                     className="textInput"

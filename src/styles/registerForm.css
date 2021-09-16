@@ -1,9 +1,3 @@
-@font-face {
-    font-family: '한나는열한살체.ttf';
-    src: url(./fonts/배달의민족폰트/한나는열한살체.ttf);
-    font-weight: normal;
-    font-style: normal;
-}  
 
 .register_modal{
     width: 100%;
@@ -20,7 +14,6 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    /* z-index: 1; */
 }
 
 .register-input-box{
@@ -34,12 +27,14 @@
     border-radius: 12px;
 }
 .register-input-text{
+    font-family: sans-serif;
     width: 40%;
     height: 4vh;
     background-color: white;
     color: #5FBEBB;
     border: none;
     margin-top: 20px;
+    font-size: 16px12;
 }
 .bamin-font6{
     font-family: "한나는열한살체.ttf";

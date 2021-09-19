@@ -50,6 +50,7 @@ input:focus{
     background-color: white;
     font-family: "한나는열한살체.ttf";
     text-align: center;
+    cursor: pointer;
 }
 
 .bottomLine {
@@ -69,6 +70,7 @@ input:focus{
 a{
     text-decoration: none;
     color: white;
+    cursor: pointer;
 }
 
 .find{

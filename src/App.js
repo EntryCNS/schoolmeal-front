@@ -5,11 +5,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 // import loginForm from './components/Login/loginForm';
 import AppRouter from './components/Router';
 import React,{useState} from 'react';
-// import registerMain from './components/register/registerMain'
 // import registerForm from './components/register/registerForm'
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   
   return (
     <>
@@ -29,6 +28,7 @@ function App() {
     // </div>
     // </Router>
   )
+
 }
 
 export default App;

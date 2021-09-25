@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import apiConfig from "../../../config/apiConfig";
 import { NotificationContainer, NotificationManager } from 'react-notifications';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import "../../../styles/registerForm.css"
 
 function SignUpmodal(props){

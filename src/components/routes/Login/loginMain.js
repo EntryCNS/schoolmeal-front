@@ -1,5 +1,5 @@
 import React, { useState,useEffect,useCallback } from "react";
-import "../../styles/loginMain.css";
+import "../../../styles/loginMain.css";
 import LoginForm from "./loginForm";
 import SignUpmodal from './../modals/signUpmodal'
 

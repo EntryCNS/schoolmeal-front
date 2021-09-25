@@ -1,12 +1,12 @@
 import { expressionStatement } from "@babel/types";
 import React, { useState,useEffect,useCallback } from "react";
-import "../../styles/loginForm.css"
+import "../../../styles/loginForm.css"
 import 'react-notifications/lib/notifications.css'
 import axios from "axios";
-import apiConfig from "../../config/apiConfig";
+import apiConfig from "../../../config/apiConfig"
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { Link } from 'react-router-dom'
-import CustomInput from "../../custom/CustomInput"
+import CustomInput from "../../../custom/CustomInput"
 import SignUpmodal from "../modals/signUpmodal";
 
 function LoginForm(props) {

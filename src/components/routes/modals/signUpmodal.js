@@ -10,6 +10,7 @@ function SignUpmodal(props){
     console.log(typeof props.modalToggle)
     console.log(props)
     const [name, setName] = useState("");
+  
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");

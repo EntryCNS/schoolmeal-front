@@ -1,14 +1,12 @@
 import React, { useState,useEffect,useCallback } from "react";
 import "../../../styles/loginMain.css";
 import LoginForm from "./loginForm";
-import SignUpmodal from './../modals/signUpmodal'
 
 function LoginMain() {
     const [signUpModalOn,setSignUpModalOn] =  useState(false);
     
     return (
         <div>
-            {/* <SignUpmodal show={true} hide={setSignUpModalOn}/> */}
             <div className="container-left">
                 <div className="transparent-box"></div>
                 <div className="img"></div>

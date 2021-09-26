@@ -1,11 +1,9 @@
-import { expressionStatement } from "@babel/types";
 import React, { useState,useEffect,useCallback } from "react";
 import "../../../styles/loginForm.css"
 import 'react-notifications/lib/notifications.css'
 import axios from "axios";
 import apiConfig from "../../../config/apiConfig"
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-import { Link } from 'react-router-dom'
 import CustomInput from "../../../custom/CustomInput"
 import SignUpmodal from "../modals/signUpmodal";
 
@@ -38,9 +36,7 @@ function LoginForm(props) {
         NotificationManager.warning(' 준비중이랍니다', 'Dauth는..', 2200)
     },[])
 
-    const modalToggle = useCallback(() => setSignUpModalOn((state) => !state),[]); //스테이트는 바뀌지 않고 그냥 부호만 바뀌는 것
-    // const modalToggle = useCallback(() => setSignUpModalOn(signUpModalOn?false:true),[signUpModalOn]);
-    // setValue("value"); setValue((prev)=>{return !prev;})
+    const modalToggle = useCallback(() => setSignUpModalOn((state) => !state),[]);
     return (
         <>
         <div className="login-container ">
@@ -84,7 +80,6 @@ function LoginForm(props) {
                     <a href="#">아이디/비밀번호 찾기</a>
                 </div>
                 <div className="join">
-                    {/* <Link to="/registerMain">회원가입</Link> */}
                     <a onClick={modalToggle}>회원가입</a>
                 </div>
             </div>

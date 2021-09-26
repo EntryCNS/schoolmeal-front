@@ -1,0 +1,58 @@
+.Frag {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #5fbebb;
+}
+.MainFrame {
+  /* position: relative;
+  top: 15%;
+  left: 5%; */
+}
+hr {
+  position: absolute;
+  width: 70%;
+  height: 0px;
+  left: 7%;
+  top: 20%;
+  border: 3px solid #ffffff;
+}
+.Title {
+  /* 우리가 어떤 민족입니까 */
+
+  position: absolute;
+  width: 295px;
+  height: 52px;
+  left: 35%;
+  top: 15%;
+  font-weight: 200;
+  font-size: 26px;
+  line-height: 30px;
+
+  color: #ffffff;
+}
+
+.LogoTitle {
+  font-size: 70px;
+}
+
+li {
+  list-style: none;
+  margin: 5px;
+}
+
+.navB {
+  font-size: 20px;
+}
+
+.MainNav {
+  width: 88%;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top: 24%;
+  left: -3.5%;
+  color: white;
+  /* display: flex;
+  justify-content: space-around; */
+}

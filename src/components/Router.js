@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { HashRouter as Router,Route,Switch } from "react-router-dom";
 import Login from "./routes/Login/loginMain"
-import Main from "./routes/Main"
+import MainPage from "./mainPage/MainPage"
 const AppRouter = ({isLoggedIn})=> {
      return(
          <Router>
@@ -9,7 +9,7 @@ const AppRouter = ({isLoggedIn})=> {
                  {isLoggedIn ? (
                  <>
                  <Route exact path="/">
-                     <Main/>
+                     <MainPage/>
                  </Route> 
                  </>
                  ):(

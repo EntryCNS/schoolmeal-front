@@ -11,6 +11,9 @@ const Nav = () => {
         <li><Link to="/"> 랭킹</Link></li>
         <li><Link to="/">응원하기</Link></li>
       </ul>
+      <div className="mainPageTitle">
+      <h1>급식</h1><h2>의</h2><h1>민족</h1>
+      </div>
     </div>
   );
 };

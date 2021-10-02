@@ -1,23 +1,18 @@
 import React from "react";
 import "../../styles/mainNav.css";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className="Frag">
-      <div className="MainFrame">
-        <h3 className="Title">우리가 어떤 민족입니까</h3>
-        <hr />
-        <div className="MainNav">
-          <p className="navB">로그아웃</p>
-          <h1 className="LogoTitle">급식의 민족</h1>
-          <nav className="navB">
-            <ul>
-              <li>급식 신청보기</li>
-              <li>신청현황 보기</li>
-              <li>응원하기</li>
-            </ul>
-          </nav>
-        </div>
+    <div className="nav">
+      <ul>
+        <li><Link to="#">신청하기</Link></li>
+        <li><Link to="/">신청현황</Link></li>
+        <li><Link to="/"> 랭킹</Link></li>
+        <li><Link to="/">응원하기</Link></li>
+      </ul>
+      <div className="mainPageTitle">
+      <h1>급식</h1><h2>의</h2><h1>민족</h1>
       </div>
     </div>
   );

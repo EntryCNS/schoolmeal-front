@@ -1,8 +1,9 @@
-.Meal {
-  width: 850px;
-  height: 550px;
-  border: 1px solid black;
+
+.Meal{
   position: absolute;
-  top: 40%;
-  left: 7%;
+  width: 100%;
+  background-color: white;
+  background-size: cover;
+  height: 79%;
+  z-index: 2;
 }

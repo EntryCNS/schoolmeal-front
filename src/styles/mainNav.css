@@ -4,7 +4,15 @@
 }
 .nav{
     height: 200px;
-    background-color: tomato;
+
+}
+.transe{
+    position: fixed;
+    width: 100%;
+    height: 200px;
+    background-color: black;
+    opacity: 0.4;
+    z-index: -1;
 }
 
 .nav ul{
@@ -16,6 +24,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 1;
 }
 .nav ul li{
     font-size: 22px;

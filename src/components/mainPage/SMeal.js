@@ -3,9 +3,11 @@ import "../../styles/mainSMeal.css";
 
 const SMeal = () => {
   return (
-    <div>
-      <div className="Meal">sd</div>
-    </div>
+ 
+      <div className="Meal">
+
+      </div>
+
   );
 };
 

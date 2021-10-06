@@ -5,7 +5,7 @@ const SMeal = () => {
   return (
  
       <div className="Meal">
-
+        
       </div>
 
   );

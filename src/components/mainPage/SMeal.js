@@ -3,34 +3,31 @@ import "../../styles/mainSMeal.css";
 
 
 const SMeal = () => {
-//   const School = require('shcool-kr');
+  const School = require('node-school-kr') 
+  const school = new School()
+   
+  school.init(School.Type.HIGH, School.Region.DEAGU, 'D100000282')
 
-//  const shcool = new School();
+const example = async function () {
+  const meal = await school.getMeal()
 
-//  const example = async function(){
-
-//   const result = await school.search(School.Region.DEAGU, '대구소프트웨어마이스터고');
-//   school.init(School.Type.HIGH, School.Region.DEAGU, result[0].schoolCode);
-  
-//   const meal = await school.getMeal();
-//   console.log(meal);
-  
-//  }
-// example();
+  console.log(meal.today)
+}
+example();
   return (
 
     <div className="Meal">
       <div className="menu">
         <h1>오늘의 급식</h1>
         <p>빠르게 급식을 확인하세요</p>
-        <div className="mor">
-
+        <div className="menuCard">
+          
         </div>
 
-        <div className="aft">
+        <div className="menuCard">
         </div>
 
-        <div className="eve">
+        <div className="menuCard">
         </div>
 
       </div>

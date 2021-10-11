@@ -3,17 +3,18 @@ import "../../styles/mainSMeal.css";
 
 
 const SMeal = () => {
-  const School = require('node-school-kr') 
-  const school = new School()
+//   const School = require('node-school-kr') 
+//   const school = new School()
    
-  school.init(School.Type.HIGH, School.Region.DEAGU, 'D100000282')
+//   school.init(School.Type.HIGH, School.Region.DEAGU, 'D100000282')
 
-const example = async function () {
-  const meal = await school.getMeal()
-
-  console.log(meal.today)
-}
-example();
+// const example = async function () {
+//   const meal = await school.getMeal()
+//   console.log(meal);
+//   console.log(meal.today)
+  
+// }
+// example();
   return (
 
     <div className="Meal">

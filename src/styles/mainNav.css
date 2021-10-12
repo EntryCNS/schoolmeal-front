@@ -14,11 +14,10 @@
 }
 
 .nav ul{
-    border-radius: 7px;
+    border-radius: 0 0 30px 30px;
     margin: auto;
     width: 60%;
-    /* height: 70px; */
-    height: 7vh;
+    height: 8vh;
     background-color: #5FBEBB;
     display: flex;
     justify-content: space-around;

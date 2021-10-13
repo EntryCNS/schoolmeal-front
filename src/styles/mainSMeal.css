@@ -17,6 +17,7 @@
   height: 62%;
   background-color: #DCDCDC;
   border-radius: 10px;  
+  box-shadow: 1px 1px 5px 0px gray;
 }
 
 .menu h1,p{

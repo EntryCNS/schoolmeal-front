@@ -40,6 +40,106 @@ const dumiDataQ = [
     description: "!!!!!!!!!!!!!!!!!!",
     like: 0,
   },
+  {
+    title: "김치",
+    description: "김치 먹고싶어요",
+    like: 5,
+  },
+  {
+    title: "참소라 죽",
+    description: "급식 중에 참소라 죽이 제일 맛있어요❤️",
+    like: 34,
+  },
+  {
+    title: "오리영양탕",
+    description: "사랑해요❤️",
+    like: 68,
+  },
+  {
+    title: "???",
+    description: "!!!!!!!!!!!!!!!!!!",
+    like: 0,
+  },
+  {
+    title: "김치",
+    description: "김치 먹고싶어요",
+    like: 5,
+  },
+  {
+    title: "참소라 죽",
+    description: "급식 중에 참소라 죽이 제일 맛있어요❤️",
+    like: 34,
+  },
+  {
+    title: "오리영양탕",
+    description: "사랑해요❤️",
+    like: 68,
+  },
+  {
+    title: "???",
+    description: "!!!!!!!!!!!!!!!!!!",
+    like: 0,
+  },
+  {
+    title: "김치",
+    description: "김치 먹고싶어요",
+    like: 5,
+  },
+  {
+    title: "참소라 죽",
+    description: "급식 중에 참소라 죽이 제일 맛있어요❤️",
+    like: 34,
+  },
+  {
+    title: "오리영양탕",
+    description: "사랑해요❤️",
+    like: 68,
+  },
+  {
+    title: "???",
+    description: "!!!!!!!!!!!!!!!!!!",
+    like: 0,
+  },
+  {
+    title: "김치",
+    description: "김치 먹고싶어요",
+    like: 5,
+  },
+  {
+    title: "참소라 죽",
+    description: "급식 중에 참소라 죽이 제일 맛있어요❤️",
+    like: 34,
+  },
+  {
+    title: "오리영양탕",
+    description: "사랑해요❤️",
+    like: 68,
+  },
+  {
+    title: "???",
+    description: "!!!!!!!!!!!!!!!!!!",
+    like: 0,
+  },
+  {
+    title: "김치",
+    description: "김치 먹고싶어요",
+    like: 5,
+  },
+  {
+    title: "참소라 죽",
+    description: "급식 중에 참소라 죽이 제일 맛있어요❤️",
+    like: 34,
+  },
+  {
+    title: "오리영양탕",
+    description: "사랑해요❤️",
+    like: 68,
+  },
+  {
+    title: "???",
+    description: "!!!!!!!!!!!!!!!!!!",
+    like: 0,
+  },
 ];
 
 const RMeal = ({ modal, toggle }) => {
@@ -53,7 +153,14 @@ const RMeal = ({ modal, toggle }) => {
         <option value="recently">최근</option>
         <option value="name">이름</option>
       </select>
-      <div>
+      <div
+        style={{
+          overflow: "scroll",
+          display: "flex",
+          flexWrap: "wrap",
+          paddingTop: 0,
+        }}
+      >
         {dumiDataQ.map((i) => (
           <ReqCom index={i} />
         ))}

@@ -2,7 +2,8 @@ import React, { useState,useEffect,useCallback } from "react";
 import "../../../styles/loginMain.css";
 import LoginForm from "./loginForm";
 
-function LoginMain() {
+function LoginMain({setIsLoggedIn}) {
+    
     const [signUpModalOn,setSignUpModalOn] =  useState(false);
     
     return (
@@ -11,7 +12,7 @@ function LoginMain() {
                 <div className="transparent-box"></div>
                 <div className="img"></div>
                 <div className="mainColor">
-                <LoginForm signUpModalOn={setSignUpModalOn}/>
+                <LoginForm setIsLoggedIn={setIsLoggedIn} signUpModalOn={setSignUpModalOn}/>
                 </div>
             </div>
             <div className="container-right">

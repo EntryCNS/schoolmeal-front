@@ -1,4 +1,5 @@
-import React, { useState,useEffect,useCallback } from "react";
+import React, { useState,useCallback } from "react";
+import {useHistory} from "react-router-dom"
 import "../../../styles/loginForm.css"
 import 'react-notifications/lib/notifications.css'
 import axios from "axios";
@@ -7,10 +8,11 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import CustomInput from "../../../custom/CustomInput"
 import SignUpmodal from "../modals/signUpmodal";
 
-function LoginForm(props) {
+function LoginForm({setIsLoggedIn}) {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
-    const [ signUpModalOn, setSignUpModalOn ] = useState(false)
+    const [ signUpModalOn, setSignUpModalOn ] = useState(false);
+    const history = useHistory();
 
     const postData = useCallback(() => {
         axios
@@ -22,7 +24,8 @@ function LoginForm(props) {
             NotificationManager.success('로그인에 성공하였습니다 :D', "성공!", 2200)
             const resData = e.data
             console.log(resData)
-            localStorage.setItem('jwtToken', resData.body.jwtToken)
+            localStorage.setItem('jwtRefreshToken', resData.body.jwtRefreshToken);
+            setIsLoggedIn(resData.body.jwtRefreshToken);
         })
         )
         .catch((ex)=>{

@@ -1,8 +1,8 @@
-import React,{useState} from "react";
+import React from "react";
 import { HashRouter as Router,Route,Switch } from "react-router-dom";
 import Login from "./routes/Login/loginMain"
 import MainPage from "./mainPage/MainPage"
-const AppRouter = ({isLoggedIn})=> {
+const AppRouter = ({setIsLoggedIn,isLoggedIn})=> {
      return(
          <Router>
              <Switch>
@@ -14,7 +14,7 @@ const AppRouter = ({isLoggedIn})=> {
                  </>
                  ):(
                   <Route exact path="/">
-                      <Login />
+                      <Login setIsLoggedIn={setIsLoggedIn} />
                   </Route>
                   )}
              </Switch>

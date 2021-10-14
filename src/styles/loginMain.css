@@ -10,6 +10,55 @@
     font-weight: normal;
     font-style: normal; 
 }
+
+@font-face {
+    font-family: '주아체.ttf';
+    src: url(./fonts/배달의민족폰트/주아체.ttf);
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: '을지로체.ttf';
+    src: url(./fonts/배달의민족폰트/을지로체.ttf);
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: '연성체.ttf';
+    src: url(./fonts/배달의민족폰트/연성체.ttf);
+    font-weight: normal;
+    font-style: normal; 
+}
+
+
+@font-face {
+    font-family: '한나체pro.ttf';
+    src: url(./fonts/배달의민족폰트/한나체pro.ttf);
+    font-weight: normal;
+    font-style: normal; 
+}
+
+
+@font-face {
+    font-family: '기랑해랑체.ttf';
+    src: url(./fonts/배달의민족폰트/기랑해랑체.ttf);
+    font-weight: normal;
+    font-style: normal; 
+}
+
+
+@font-face {
+    font-family: '도현체.ttf';
+    src: url(./fonts/배달의민족폰트/도현체.ttf);
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;

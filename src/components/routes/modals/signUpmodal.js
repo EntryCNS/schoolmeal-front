@@ -26,7 +26,9 @@ function SignUpmodal(props){
                 email,
                 birth,
             })
-            .then()
+            .then(()=>{
+                NotificationManager.success('회원가입에 성공하였습니다 :D', "성공!", 2200)
+            })
             .catch((ex) => {
                 let resp = ex.response
                 console.log(resp)

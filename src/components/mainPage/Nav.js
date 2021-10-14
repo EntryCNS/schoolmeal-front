@@ -7,13 +7,23 @@ const Nav = () => {
     <div className="nav">
       <div className="transe"></div>
       <ul>
-        <li><Link to="/">신청하기</Link></li>
-        <li><Link to="/">신청현황</Link></li>
-        <li><Link to="/"> 랭킹</Link></li>
-        <li><Link to="/">응원하기</Link></li>
+        <li>
+          <Link to="/request">신청하기</Link>
+        </li>
+        <li>
+          <Link to="/">신청현황</Link>
+        </li>
+        <li>
+          <Link to="/"> 랭킹</Link>
+        </li>
+        <li>
+          <Link to="/">응원하기</Link>
+        </li>
       </ul>
       <div className="mainPageTitle">
-      <h1>급식</h1><h2>의</h2><h1>민족</h1>
+        <h1>급식</h1>
+        <h2>의</h2>
+        <h1>민족</h1>
       </div>
     </div>
   );

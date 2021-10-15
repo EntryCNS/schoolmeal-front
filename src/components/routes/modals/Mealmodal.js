@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
+import { Add } from "../../../reducer/MealReducer";
 import { MEALMODALTOGGLE } from "../../../reducer/reducer";
 import "../../../styles/MealModal.css";
 
-const Mealmodal = ({ toggle }) => {
+const Mealmodal = ({ toggle, AddDumi }) => {
+  const [name, setName] = useState("");
+  const [des, setDes] = useState("");
+
+  const onClick = () => {
+    if (name !== "") {
+      AddDumi(name, des);
+      toggle();
+    } else {
+      return;
+    }
+  };
   return (
     <div
       className="modalBase"
@@ -16,20 +28,22 @@ const Mealmodal = ({ toggle }) => {
         <div className="mealreq-input-box">
           <div className="bind">
             <input
-              // value={name}
+              value={name}
               className="mealreq-input-text"
-              // onChange={(e) => {
-              //   setName(e.target.value);
-              // }}
+              onChange={(e) => {
+                console.log(name);
+                setName(e.target.value);
+              }}
               placeholder="제목"
               required
             />
             <textarea
               className="mealreq-input-description"
-              // value={id}
-              // onChange={(e) => {
-              //   setId(e.target.value);
-              // }}
+              value={des}
+              onChange={(e) => {
+                console.log(des);
+                setDes(e.target.value);
+              }}
               placeholder="내용 (선택)"
             />
           </div>
@@ -37,6 +51,7 @@ const Mealmodal = ({ toggle }) => {
             className="bamin-font6 mealreq_btn"
             type="submit"
             value="신청"
+            onClick={onClick}
           />
         </div>
       </div>
@@ -47,6 +62,7 @@ const Mealmodal = ({ toggle }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggle: () => dispatch({ type: MEALMODALTOGGLE }),
+    AddDumi: (name, des) => dispatch({ type: Add, name, des }),
   };
 };
 

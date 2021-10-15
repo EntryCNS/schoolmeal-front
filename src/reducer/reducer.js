@@ -1,10 +1,12 @@
 const initialState = {
   signUpModal: false,
-  isLoggedIn: false,
+  ReqMealModal: false,
+  isLoggedIn: true,
 };
 
-export const MODALTOGGLE = "MODALTOGGLE";
+export const MODALTOGGLE = "MODAL_TOGGLE";
 export const LOGGED = "LOGGED";
+export const MEALMODALTOGGLE = "MEAL_MODAL_TOGGLE";
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,6 +14,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         signUpModal: !state.signUpModal,
+      };
+    case MEALMODALTOGGLE:
+      return {
+        ...state,
+        ReqMealModal: !state.ReqMealModal,
       };
     case LOGGED:
       return {

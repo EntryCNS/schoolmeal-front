@@ -1,18 +1,17 @@
 import React from "react";
-import Nav from "./Nav";
-import SMeal from "./SMeal";
-import "../../styles/mainPage.css";
+import Nav from "../../mainPage/Nav";
+import RMeal from "./RMeal";
 
-const MainPage = () => {
+const RequestMain = () => {
   return (
     <body>
       <div className="transebox">
         <div className="bkImg"></div>
         <Nav />
-        <SMeal />
+        <RMeal />
       </div>
     </body>
   );
 };
 
-export default MainPage;
+export default RequestMain;

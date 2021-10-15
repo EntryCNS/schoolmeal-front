@@ -16,8 +16,25 @@ function SignUpmodal({ modalToggle }) {
 
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState(false);
   const [email, setEmail] = useState("");
   const [birth, setBirth] = useState("");
+
+  const check = (e) => {
+    setPassword2(e.target.value);
+  };
+
+  useEffect(() => {
+    if (!password2) {
+      return;
+    }
+    if (password === password2) {
+      setPasswordCheck(false);
+    } else {
+      setPasswordCheck(true);
+    }
+  }, [password, password2]);
 
   const postData = useCallback(
     (e) => {
@@ -115,8 +132,17 @@ function SignUpmodal({ modalToggle }) {
             type="password"
             placeholder="비밀번호 확인"
             className="register-input-text"
+            value={password2}
+            onChange={check}
           />
           <div className="register-bottomLine" />
+          {passwordCheck ? (
+            <div style={{ color: "red", textAlign: "right", width: "40%" }}>
+              비밀번호가 틀립니다
+            </div>
+          ) : (
+            ""
+          )}
           <input
             className="bamin-font6 register_btn"
             onClick={postData}

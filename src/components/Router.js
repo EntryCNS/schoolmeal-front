@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./routes/Login/loginMain";
 import MainPage from "./mainPage/MainPage";
 import { connect } from "react-redux";
+import RequestMain from "./routes/requestPage/RequestMain";
 const AppRouter = ({ isLoggedIn }) => {
   return (
     <Router>
@@ -11,6 +12,9 @@ const AppRouter = ({ isLoggedIn }) => {
           <>
             <Route exact path="/">
               <MainPage />
+            </Route>
+            <Route path="/request">
+              <RequestMain />
             </Route>
           </>
         ) : (

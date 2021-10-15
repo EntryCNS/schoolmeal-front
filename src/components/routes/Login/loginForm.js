@@ -34,6 +34,7 @@ function LoginForm({ setIsLoggedIn, signUpModalOn, modalToggle }) {
         const resData = e.data;
         console.log(resData);
         localStorage.setItem("jwtRefreshToken", resData.body.jwtRefreshToken);
+        localStorage.setItem("jwtAccessToken",resData.body.jwtAccessToken);
         setIsLoggedIn(resData.body.jwtRefreshToken);
       })
       .catch((ex) => {

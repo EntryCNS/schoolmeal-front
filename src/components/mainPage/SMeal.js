@@ -7,6 +7,23 @@ import { Link } from "react-router-dom";
 const SMeal = () => {
   const [MonthData, SetMonthData] = useState([]);
   const [TodayData, SetTodayData] = useState(null);
+  const [NowTime,SetNowTime] = useState(null);
+  
+  const timeChecker = (timeIdx) => {
+    const rangeArr = [ 
+      [ 19, 8 ],
+      [ 8, 13 ],
+      [ 13, 19 ]
+     ]
+
+    var now = new Date();
+    var hours = now.getHours();
+
+    const turnOnRed = (hours > rangeArr[timeIdx][0] && hours <= rangeArr[timeIdx][1])
+    return turnOnRed
+  }
+
+
 
   useEffect(() => {
     axios
@@ -31,17 +48,17 @@ const SMeal = () => {
           ) : (
             <div>
               <h1>조식</h1>
-              <div className="menuCard">
+              <div className={`menuCard ${timeChecker(0) ? 'nextMealColor' : ''}`} id="breakfast" >
                 <p>{TodayData.breakfast.join(", ")}</p>
               </div>
 
               <h1>중식</h1>
-              <div className="menuCard">
+              <div className={`menuCard ${timeChecker(1) ? 'nextMealColor' : ''}`} id="lunch">
                 <p>{TodayData.lunch.join(", ")}</p>
               </div>
 
               <h1>석식</h1>
-              <div className="menuCard">
+              <div className={`menuCard ${timeChecker(2) ? 'nextMealColor' : ''}`} id="dinner">
                 <p>{TodayData.dinner.join(", ")}</p>
               </div>
             </div>

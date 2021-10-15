@@ -1,7 +1,7 @@
 const initialState = {
   signUpModal: false,
   ReqMealModal: false,
-  isLoggedIn: true,
+  isLoggedIn: false,
 };
 
 export const MODALTOGGLE = "MODAL_TOGGLE";

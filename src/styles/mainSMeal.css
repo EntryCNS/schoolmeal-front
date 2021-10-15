@@ -37,11 +37,15 @@ p{
 }
 
 .menu p{
-  font-size: 25px;
+  font-size: 130%;
 }
 
 .middle{
   margin: 100px;
+}
+
+.nextMealColor {
+  color: rgb(255, 101, 55)
 }
 
 #postMenu{

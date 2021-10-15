@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/mainNav.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -8,16 +8,25 @@ const Nav = () => {
       <div className="transe"></div>
       <ul>
         <li>
-          <Link to="/request">신청하기</Link>
+          <NavLink activeClassName="selected" to="/request">
+            신청하기
+          </NavLink>
         </li>
         <li>
-          <Link to="/">신청현황</Link>
+          <NavLink activeClassName="selected" to="/">
+            신청현황
+          </NavLink>
         </li>
         <li>
-          <Link to="/"> 랭킹</Link>
+          <NavLink activeClassName="selected" to="/">
+            {" "}
+            랭킹
+          </NavLink>
         </li>
         <li>
-          <Link to="/">응원하기</Link>
+          <NavLink activeClassName="selected" to="/">
+            응원하기
+          </NavLink>
         </li>
       </ul>
       <div className="mainPageTitle">

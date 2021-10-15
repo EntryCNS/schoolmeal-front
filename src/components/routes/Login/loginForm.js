@@ -113,7 +113,7 @@ function LoginForm({ setIsLoggedIn, signUpModalOn, modalToggle }) {
 
 const mapStateToProps = (state) => {
   return {
-    signUpModalOn: state.signUpModal,
+    signUpModalOn: state.userReducer.signUpModal,
   };
 };
 

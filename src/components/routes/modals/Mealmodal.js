@@ -22,6 +22,7 @@ const Mealmodal = ({ toggle }) => {
               //   setName(e.target.value);
               // }}
               placeholder="제목"
+              required
             />
             <textarea
               className="mealreq-input-description"

@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./routes/Login/loginMain";
 import MainPage from "./mainPage/MainPage";
 import { connect } from "react-redux";
 import RequestMain from "./routes/requestPage/RequestMain";
 const AppRouter = ({ isLoggedIn }) => {
+  // useEffect(() => {
+  //   localStorage.getItem("jwtRefreshToken", resData.body.jwtRefreshToken);
+  //   localStorage.getItem("jwtAccessToken", resData.body.jwtAccessToken);
+  // }, []);
   return (
     <Router>
       <Switch>
@@ -29,7 +33,7 @@ const AppRouter = ({ isLoggedIn }) => {
 
 const mapStateToProps = (state) => {
   return {
-    isLoggedIn: state.isLoggedIn,
+    isLoggedIn: state.userReducer.isLoggedIn,
   };
 };
 

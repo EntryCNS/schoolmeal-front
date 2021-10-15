@@ -2,9 +2,20 @@ import React, { useCallback } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { MEALMODALTOGGLE } from "../../../reducer/reducer";
-import "../../../styles/mainSMeal.css";
 import Mealmodal from "../modals/Mealmodal";
 import ReqCom from "./ReqCom";
+import "../../../styles/RMeal.css";
+
+const Div = styled.div`
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 0;
+  padding-bottom: 100px;
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+`;
 
 const REQ = styled.div`
   position: fixed;
@@ -14,8 +25,8 @@ const REQ = styled.div`
   height: 80%;
   z-index: 2;
   display: flex;
-  padding: 60px;
-  padding-top: 100px;
+  padding: 80px;
+  padding-top: 70px;
   padding-bottom: 0;
 `;
 
@@ -148,24 +159,19 @@ const RMeal = ({ modal, toggle }) => {
   }, []);
   return (
     <REQ>
-      <select name="sort">
+      <select name="sort" className="sort">
         <option value="popularity">인기</option>
         <option value="recently">최근</option>
         <option value="name">이름</option>
       </select>
-      <div
-        style={{
-          overflow: "scroll",
-          display: "flex",
-          flexWrap: "wrap",
-          paddingTop: 0,
-        }}
-      >
+      <Div>
         {dumiDataQ.map((i) => (
           <ReqCom index={i} />
         ))}
-      </div>
-      <button onClick={onClick}>+</button>
+      </Div>
+      <button className="addBut" onClick={onClick}>
+        +
+      </button>
       {modal ? <Mealmodal /> : ""}
     </REQ>
   );
@@ -173,7 +179,7 @@ const RMeal = ({ modal, toggle }) => {
 
 const mapStateToProps = (state) => {
   return {
-    modal: state.ReqMealModal,
+    modal: state.userReducer.ReqMealModal,
   };
 };
 

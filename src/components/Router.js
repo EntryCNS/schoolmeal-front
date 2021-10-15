@@ -4,11 +4,15 @@ import Login from "./routes/Login/loginMain";
 import MainPage from "./mainPage/MainPage";
 import { connect } from "react-redux";
 import RequestMain from "./routes/requestPage/RequestMain";
-const AppRouter = ({ isLoggedIn }) => {
-  // useEffect(() => {
-  //   localStorage.getItem("jwtRefreshToken", resData.body.jwtRefreshToken);
-  //   localStorage.getItem("jwtAccessToken", resData.body.jwtAccessToken);
-  // }, []);
+import { LOGGED } from "../reducer/reducer";
+const AppRouter = ({ isLoggedIn, login }) => {
+  useEffect(() => {
+    if (localStorage.getItem("jwtRefreshToken")) {
+      login();
+    } else {
+      return;
+    }
+  }, []);
   return (
     <Router>
       <Switch>
@@ -36,5 +40,9 @@ const mapStateToProps = (state) => {
     isLoggedIn: state.userReducer.isLoggedIn,
   };
 };
-
-export default connect(mapStateToProps, null)(AppRouter);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: () => dispatch({ type: LOGGED }),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(AppRouter);

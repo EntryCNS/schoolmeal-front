@@ -4,7 +4,7 @@ import MealReducer from "./MealReducer";
 const initialState = {
   signUpModal: false,
   ReqMealModal: false,
-  isLoggedIn: false,
+  isLoggedIn: true,
 };
 
 export const MODALTOGGLE = "MODAL_TOGGLE";

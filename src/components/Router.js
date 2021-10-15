@@ -7,7 +7,7 @@ import RequestMain from "./routes/requestPage/RequestMain";
 import { LOGGED } from "../reducer/reducer";
 const AppRouter = ({ isLoggedIn, login }) => {
   useEffect(() => {
-    if (localStorage.getItem("jwtRefreshToken")) {
+    if (localStorage.getItem("jwtRefreshToken")&&localStorage.getItem("jwtAccessToken")) {
       login();
     } else {
       return;

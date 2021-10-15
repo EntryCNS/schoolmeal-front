@@ -11,7 +11,7 @@ const SMeal = () => {
   
   const timeChecker = (timeIdx) => {
     const rangeArr = [ 
-      [ 19, 8 ],
+      [ 19 ,25],
       [ 8, 13 ],
       [ 13, 19 ]
      ]
@@ -31,7 +31,7 @@ const SMeal = () => {
       .then((result) => {
         const menuList = result.data.body;
         const todayMenu = menuList[new Date().getDate() - 1]; // 배열이므로 -1
-        console.log(menuList);
+        
         SetTodayData(todayMenu);
         SetMonthData(result.data.body);
       });
@@ -83,14 +83,17 @@ const SMeal = () => {
 
         <div className="back">
           <Link to="/">
-            <div className="cheer">
-              
+            <div id="cheer">
+              <h1>응원하기</h1>
+              <p>맛있는 급식에 보답하세요</p>
             </div>
-
           </Link>
 
           <Link to="/">
-            
+            <div id="status">
+              <h1>신청현황</h1>
+              <p>최근 신청된 급식들을 확인하세요</p>
+            </div>
           </Link>
         </div>
       </div>

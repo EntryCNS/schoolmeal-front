@@ -1,10 +1,12 @@
-import React, { useCallback } from "react";
+import React, { useCallbac, useEffect, useCallback } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { MEALMODALTOGGLE } from "../../../reducer/reducer";
 import Mealmodal from "../modals/Mealmodal";
 import ReqCom from "./ReqCom";
 import "../../../styles/RMeal.css";
+import apiConfig from "../../../config/apiConfig";
+import Axios from 'axios'
 
 const Div = styled.div`
   width: 100%;
@@ -36,6 +38,25 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
   const onClick = useCallback(() => {
     toggle();
   }, []);
+
+  let cnt = 0
+  let hasNext = true
+  const loadMore = () => {
+    if(!hasNext) return
+    
+    Axios.get(`${apiConfig.API_ENDPOINT}/api/menus?page=${cnt++}`, {
+      headers: {'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}`}
+    })
+    .then((e)=>{
+      console.log(e.data);
+
+      hasNext = e.data.body.hasNext
+    })
+  }
+
+  //useEffect(loadMore, [])
+  loadMore()
+
   return (
     <REQ>
       <select name="sort" className="sort">

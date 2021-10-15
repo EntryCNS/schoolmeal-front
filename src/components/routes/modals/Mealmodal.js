@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Add } from "../../../reducer/MealReducer";
 import { MEALMODALTOGGLE } from "../../../reducer/reducer";
+import Axios from 'axios'
 import "../../../styles/MealModal.css";
+import apiConfig from "../../../config/apiConfig";
 
 const Mealmodal = ({ toggle, AddDumi }) => {
   const [name, setName] = useState("");
@@ -10,8 +12,17 @@ const Mealmodal = ({ toggle, AddDumi }) => {
 
   const onClick = () => {
     if (name !== "") {
+      Axios.post(`${apiConfig.API_ENDPOINT}/api/menus`,
+        {
+          menuName: name,
+          description: des,
+          isAnonymous: false
+        }, {
+        headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+      })
       AddDumi(name, des);
       toggle();
+
     } else {
       return;
     }

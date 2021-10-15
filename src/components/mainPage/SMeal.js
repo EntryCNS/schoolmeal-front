@@ -80,6 +80,19 @@ const SMeal = () => {
             </div>
           </Link>
         </div>
+
+        <div className="back">
+          <Link to="/">
+            <div className="cheer">
+              
+            </div>
+
+          </Link>
+
+          <Link to="/">
+            
+          </Link>
+        </div>
       </div>
     </div>
   );

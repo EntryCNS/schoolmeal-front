@@ -24,7 +24,7 @@ const Nav = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="selected" to="/">
+          <NavLink activeClassName="selected" to="/cheer">
             응원하기
           </NavLink>
         </li>

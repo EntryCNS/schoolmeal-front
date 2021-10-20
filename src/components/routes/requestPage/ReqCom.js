@@ -8,16 +8,18 @@ import { LIKE, UNLIKE } from "../../../reducer/MealReducer";
 const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   const [tog, setTog] = useState(false);
   const onClick = () => {
+    
     setTog(!tog);
     if (tog) {
       UNLIKE(index.id);
+      console.log(tog);
     } else {
       LIKE(index.id);
     }
   };
   return (
     <div className="menuList">
-      <h1>{index.title}</h1>
+      <h1>{index.menuName}</h1>
       <p>{index.description}</p>
       <p
         style={{
@@ -30,8 +32,9 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
           style={{ width: "23px", height: "23px" }}
           src={tog ? heart2 : heart}
         />
-        {index.like}
+        {index.vote}
       </p>
+
     </div>
   );
 });

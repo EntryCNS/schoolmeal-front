@@ -6,7 +6,6 @@ import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
-// import { Link } from 'react-router-dom'
 import "../../../styles/registerForm.css";
 import { MODALTOGGLE } from "../../../reducer/reducer";
 import { connect } from "react-redux";

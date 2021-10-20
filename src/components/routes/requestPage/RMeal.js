@@ -1,4 +1,4 @@
-import React, { useCallbac, useEffect, useCallback } from "react";
+import React, {  useEffect, useCallback, useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { MEALMODALTOGGLE } from "../../../reducer/reducer";
@@ -7,6 +7,7 @@ import ReqCom from "./ReqCom";
 import "../../../styles/RMeal.css";
 import apiConfig from "../../../config/apiConfig";
 import Axios from 'axios'
+import { logDOM } from "@testing-library/react";
 
 const Div = styled.div`
   width: 100%;
@@ -35,6 +36,9 @@ const REQ = styled.div`
 `;
 
 const RMeal = ({ modal, toggle, dumiDataQ }) => {
+  
+  const [MenuData,SetMenuData] = useState([]);
+
   const onClick = useCallback(() => {
     toggle();
   }, []);
@@ -49,12 +53,14 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
     })
     .then((e)=>{
       console.log(e.data.body);
-      hasNext = e.data.body.hasNext
+      hasNext = e.data.body.hasNext;
+      SetMenuData(e.data.body.items);
+
     })
   }
 
-  //useEffect(loadMore, [])
-  loadMore()
+  useEffect(loadMore, [])
+  // loadMore()
 
   return (
     <REQ>
@@ -73,15 +79,15 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
             flexWrap: "wrap",
           }}
         >
-          {dumiDataQ.map((i) => (
-            <ReqCom index={i} />
+          {MenuData.map((i) => (
+            <ReqCom index={i}/>
           ))}
         </div>
       </Div>
       <button className="addBut" onClick={onClick}>
         +
       </button>
-      {modal ? <Mealmodal /> : ""}
+      {modal ? <Mealmodal loadMore={loadMore} /> : ""}
     </REQ>
   );
 };

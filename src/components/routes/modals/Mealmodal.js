@@ -6,7 +6,7 @@ import Axios from 'axios'
 import "../../../styles/MealModal.css";
 import apiConfig from "../../../config/apiConfig";
 
-const Mealmodal = ({ toggle, AddDumi }) => {
+const Mealmodal = ({ toggle, AddDumi, loadMore }) => {
   const [name, setName] = useState("");
   const [des, setDes] = useState("");
 
@@ -19,6 +19,8 @@ const Mealmodal = ({ toggle, AddDumi }) => {
           isAnonymous: false
         }, {
         headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+      }).then(() => {
+        loadMore()
       })
       AddDumi(name, des);
       toggle();

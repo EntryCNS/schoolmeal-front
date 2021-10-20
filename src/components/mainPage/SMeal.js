@@ -17,27 +17,28 @@ const SMeal = () => {
       [ 13, 19 ]
      ]
 
-    var now = new Date();
-    hours = now.getHours();
+     var now = new Date();
+     hours = now.getHours();
+     console.log(hours);
 
     const turnOnRed = (hours > rangeArr[timeIdx][0] && hours <= rangeArr[timeIdx][1])
     return turnOnRed
   }
-
-
-
+  
+  
   useEffect(() => {
     axios
-      .get(`${apiConfig.API_ENDPOINT}/openapi/schoolmenu?month=${10}`)
-      .then((result) => {
-        const menuList = result.data.body;
-        var next = hours >19?1:0
-        const todayMenu = menuList[new Date().getDate() - next]; // 배열이므로 -1
-        
-        SetTodayData(todayMenu);
-        SetMonthData(result.data.body);
-      });
-  }, []);
+    .get(`${apiConfig.API_ENDPOINT}/openapi/schoolmenu?month=${10}`)
+    .then((result) => {
+      const menuList = result.data.body;
+      var next = hours > 19?0:1
+      console.log(next)
+      const todayMenu = menuList[new Date().getDate() - next]; // 배열이므로 -1
+      console.log(todayMenu);
+      SetTodayData(todayMenu);
+      SetMonthData(result.data.body);
+    });
+  },[]);
 
   return (
     <div className="Meal">
@@ -84,7 +85,7 @@ const SMeal = () => {
         </div>
 
         <div className="back">
-          <Link to="/">
+          <Link to="/cheer">
             <div id="cheer">
               <h1>응원하기</h1>
               <p>맛있는 급식에 보답하세요</p>

@@ -8,6 +8,7 @@ const SMeal = () => {
   const [MonthData, SetMonthData] = useState([]);
   const [TodayData, SetTodayData] = useState(null);
   const [NowTime,SetNowTime] = useState(null);
+  const [Next,SetNext] = useState(null);
   var hours
 
   const timeChecker = (timeIdx) => {
@@ -31,9 +32,8 @@ const SMeal = () => {
     .get(`${apiConfig.API_ENDPOINT}/openapi/schoolmenu?month=${10}`)
     .then((result) => {
       const menuList = result.data.body;
-      var next = hours > 19?0:1
-      console.log(next)
-      const todayMenu = menuList[new Date().getDate() - next]; // 배열이므로 -1
+      SetNext(hours > 19?0:1) 
+      const todayMenu = menuList[new Date().getDate() - Next]; // 배열이므로 -1
       console.log(todayMenu);
       SetTodayData(todayMenu);
       SetMonthData(result.data.body);

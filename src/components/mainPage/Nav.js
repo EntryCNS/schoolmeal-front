@@ -29,11 +29,13 @@ const Nav = () => {
           </NavLink>
         </li>
       </ul>
+        <NavLink to="/">
       <div className="mainPageTitle">
-        <h1>급식</h1>
-        <h2>의</h2>
-        <h1>민족</h1>
+          <h1>급식</h1>
+          <h2>의</h2>
+          <h1>민족</h1>
       </div>
+        </NavLink>
     </div>
   );
 };

@@ -2,21 +2,35 @@ import React, { memo, useState } from "react";
 import "../../../styles/ReqCom.css";
 import heart from "../../../img/heart.png";
 import heart2 from "../../../img/heart2.png";
-import { connect } from "react-redux";
+import axios from "axios";
+import { connect } from "react-redux"; 
 import { LIKE, UNLIKE } from "../../../reducer/MealReducer";
+import apiConfig from "../../../config/apiConfig";
+
 
 const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   const [tog, setTog] = useState(false);
+  const [Vote, SetVote ] = useState(0);
   const onClick = () => {
     
     setTog(!tog);
     if (tog) {
-      UNLIKE(index.id);
-      console.log(tog);
+      // UNLIKE(index.id);
+      // console.log(tog);
     } else {
-      LIKE(index.id);
+      // LIKE(index.id);
+      
     }
   };
+  const voteClick = ()=>{
+    SetVote(Vote+1);
+    axios.post(`${apiConfig.API_ENDPOINT}/api/menus`,
+    {
+      votes:Vote
+    }, {
+    headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+  })
+  }
   return (
     <div className="menuList">
       <h1>{index.menuName}</h1>
@@ -31,8 +45,9 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
         <img
           style={{ width: "23px", height: "23px" }}
           src={tog ? heart2 : heart}
+          onClick={voteClick}
         />
-        {index.vote}
+        {index.votes}
       </p>
 
     </div>

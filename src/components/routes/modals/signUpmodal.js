@@ -76,6 +76,8 @@ function SignUpmodal({ modalToggle }) {
     >
       <div className="modalForm">
         <div className="register-input-box">
+        <div className = "register-test">
+        </div>
           <input
             value={name}
             className="register-input-text"

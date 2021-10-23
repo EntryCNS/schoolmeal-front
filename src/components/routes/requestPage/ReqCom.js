@@ -11,6 +11,7 @@ import apiConfig from "../../../config/apiConfig";
 const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   const [tog, setTog] = useState(false);
   const [Vote, SetVote ] = useState(0);
+  // const [Votecheck,setVoteCheck] = useState(False);
   const onClick = () => {
     
     setTog(!tog);
@@ -23,12 +24,15 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
     }
   };
   const voteClick = ()=>{
+    
     SetVote(Vote+1);
-    axios.post(`${apiConfig.API_ENDPOINT}/api/menus`,
-    {
-      votes:Vote
-    }, {
+    axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {}, {
     headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+  })
+  .then(()=>{
+  //  setVoteCheck(true);
+  }).catch(e=>{
+    SetVote(Vote-1)
   })
   }
   return (

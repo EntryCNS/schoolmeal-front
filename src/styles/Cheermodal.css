@@ -1,3 +1,4 @@
+
 .button {
   display: block;
   margin: 0 auto;
@@ -8,13 +9,12 @@
 
 .modal-background {
   position: absolute;
-  width: 100vw;
+  /* width: 100vw; */
   height: 102vh;
   right: 0;
-  top: -10;
+  top: -1;
   left: 0;
   bottom: 0;
-  z-index: 5;
   background-color: rgba(10, 10, 10, 0.86);
 }
 
@@ -22,8 +22,31 @@
   margin: 0 auto;
   display: block;
   margin-top: 250px;
-  width: 300px;
-  height: 300px;
-  background-color: lightgray;
+  width: 370px;
+  height: 350px;
+  background-color: #FFE971;
   border-radius: 5px;
+  z-index: 1;
+}
+
+#cheerInput{
+    width: 100%;
+    height: 90%;
+    padding: 10px;
+    resize: none;
+    font-size: 20px;
+}
+#cheerInput::placeholder{
+    color: #AEAEAE;
+    font-size: 20px;
+}
+#cheerInput:focus{
+    outline: none;
+}
+
+
+#cheerBtn{
+    background-color: blue;
+    width: 100%;
+    height: 10%;
 }

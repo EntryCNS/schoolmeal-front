@@ -21,9 +21,17 @@ const REQ = styled.div`
 const SCheer = ()=>{
   const [Show,setShow] = useState(false)
 
-    const handleModalClose = (e) => {
-        setShow(false);
-      };
+      
+  const handleModalClose = (e) => {
+    const currentClass = e.target.className;
+    
+    if (currentClass == 'modal-card') {
+      return;
+    }
+    else{
+      setShow(false);
+    }
+  };
 
     const handleModalOpen = () => {
         setShow(true);

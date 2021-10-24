@@ -28,6 +28,7 @@ const SMeal = () => {
       axios
       .get(`${apiConfig.API_ENDPOINT}/openapi/schoolmenu?month=${10}`)
       .then((result) => {
+        
         const menuList = result.data.body;
         SetNext(hours > 19?0:1)
         const todayMenu = menuList[new Date().getDate() - 1]; // 배열이므로 -1

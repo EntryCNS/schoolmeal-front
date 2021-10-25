@@ -9,10 +9,9 @@ const Cheermodal = ({ handleModalClose, Show }) => {
 
     const cheerData = () => {
         if (Cheer !=="") {
-            console.log("전송")
             axios
-                .post(`${apiConfig.API_ENDPOINT}/`, {
-                    cheer: Cheer
+                .post(`${apiConfig.API_ENDPOINT}/api/cheers`, {
+                    content: Cheer
                 }, {
                     headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
                 })

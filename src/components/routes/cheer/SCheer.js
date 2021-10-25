@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import CheerModal from "../modals/CheerModal"
-import React, {useState } from "react";
+import React, {useState,useEffect } from "react";
 
-import Cheermodal from "../modals/CheerModal";
+import CheerCom from "./CheerCom";
+import axios from "axios";
+import apiConfig from "../../../config/apiConfig";
+import { logDOM } from "@testing-library/react";
 
 
 const REQ = styled.div`
@@ -21,6 +24,20 @@ const REQ = styled.div`
 const SCheer = ()=>{
   const [Show,setShow] = useState(false)
 
+  const[CheerData,setCheerData] = useState([]);
+  
+  const loadMore = ()=>{
+
+    axios.get(`${apiConfig.API_ENDPOINT}/api/cheers`,{
+      headers: {'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}`}
+    })
+    .then((e)=>{
+      setCheerData(e.data.body)
+      console.log("받아옴")
+    })
+  }
+
+  useEffect(loadMore,[])
       
   const handleModalClose = (e) => {
     const currentClass = e.target.className;
@@ -38,7 +55,10 @@ const SCheer = ()=>{
       };
 return(
 <REQ>
-  <CheerModal Show={Show} handleModalClose={handleModalClose} handleModalOpen={handleModalOpen}/>
+  {CheerData.map((i)=>{
+  <CheerCom index={i}/>
+  })}
+  <CheerModal Show={Show} handleModalClose={handleModalClose} handleModalOpen={handleModalOpen} lodeMore={loadMore}/>
 <button className="addBut" onClick={handleModalOpen} >
         +
 </button>

@@ -3,6 +3,7 @@ import "../../styles/mainSMeal.css";
 import axios from "axios";
 import apiConfig from "../../config/apiConfig";
 import { Link } from "react-router-dom";
+import accept from "../../img/accept1.png"
 
 const SMeal = () => {
   const [MonthData, SetMonthData] = useState([]);
@@ -101,6 +102,7 @@ const SMeal = () => {
             <div id="status">
               <h1>신청현황</h1>
               <p>최근 신청된 급식들을 확인하세요</p>
+              <img style={{width:"85px",height:"85px"}} src={accept}></img>
             </div>
           </Link>
         </div>

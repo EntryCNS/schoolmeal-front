@@ -17,6 +17,7 @@ const Cheermodal = ({ handleModalClose, Show ,lodeMore}) => {
                     headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
                 }).then((e)=>{
                     console.log("보냄");
+                    console.log(e.data.body);
                     lodeMore();
                 })
         }

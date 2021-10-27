@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import CheerModal from "../modals/CheerModal"
-import React, {useState,useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 import CheerCom from "./CheerCom";
 import axios from "axios";
 import apiConfig from "../../../config/apiConfig";
@@ -16,55 +15,58 @@ const REQ = styled.div`
   height: 80%;
   z-index: 2;
   display: flex;
+  flex-wrap:wrap;
   padding: 80px;
   padding-top: 70px;
   padding-bottom: 0;
   `;
-  
-const SCheer = ()=>{
-  const [Show,setShow] = useState(false)
 
-  const[CheerData,setCheerData] = useState([]);
-  
-  const loadMore = ()=>{
+const SCheer = () => {
+  const [Show, setShow] = useState(false)
 
-    axios.get(`${apiConfig.API_ENDPOINT}/api/cheers`,{
-      headers: {'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}`}
+  const [CheerData, setCheerData] = useState([]);
+
+  const loadMore = () => {
+
+    axios.get(`${apiConfig.API_ENDPOINT}/api/cheers`, {
+      headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     })
-    .then((e)=>{
-      setCheerData(e.data.body)
-      console.log("받아옴")
-    })
+      .then((e) => {
+        console.log(e.data.body)
+        setCheerData(e.data.body)
+        // console.log(CheerData)
+        console.log("받아옴")
+      })
   }
 
-  useEffect(loadMore,[])
-      
+  useEffect(loadMore, [])
+
   const handleModalClose = (e) => {
     const currentClass = e.target.className;
-    
+
     if (currentClass == 'modal-card') {
       return;
     }
-    else{
+    else {
       setShow(false);
     }
   };
 
-    const handleModalOpen = () => {
-        setShow(true);
-      };
-return(
-<REQ>
-  {CheerData.map((i)=>{
-  <CheerCom index={i}/>
-  })}
-  <CheerModal Show={Show} handleModalClose={handleModalClose} handleModalOpen={handleModalOpen} lodeMore={loadMore}/>
-<button className="addBut" onClick={handleModalOpen} >
+  const handleModalOpen = () => {
+    setShow(true);
+  };
+  return (
+    <REQ>
+      {CheerData.map((i) => (
+        <CheerCom index={i} />
+      ))}
+      <CheerModal Show={Show} handleModalClose={handleModalClose} handleModalOpen={handleModalOpen} lodeMore={loadMore} />
+      <button className="addBut" onClick={handleModalOpen} >
         +
-</button>
-</REQ>
+      </button>
+    </REQ>
 
-)
+  )
 }
 
 export default SCheer

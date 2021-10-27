@@ -56,6 +56,7 @@ function LoginForm({ setIsLoggedIn, signUpModalOn, modalToggle }) {
   return (
     <>
       <div className="login-container ">
+        <div className="mainLogo"></div>
         <div className="input-box ">
           <div id="id">
             <CustomInput

@@ -10,6 +10,12 @@
     align-items: center;
 }
 
+.mainLogo{
+    background:url(../img/mainLogo.png) no-repeat ;
+    width: 150px;
+    height: 170px;
+}
+
 .textInput{
   width: 340px;
   height: 45px;

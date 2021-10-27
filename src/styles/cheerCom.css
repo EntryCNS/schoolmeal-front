@@ -1,0 +1,14 @@
+
+.postit{
+    width: 220px;
+    height: 220px;
+    background-color: #ccc;
+    margin: 40px;
+}
+
+.date{
+    position: absolute;
+    top: 50;
+    bottom: 10;
+    font-size: 12px;
+}

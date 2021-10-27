@@ -1,10 +1,10 @@
 import React from "react";
-import axios from "axios";
-
+import "../../../styles/cheerCom.css"
 const CheerCom = ({index}) => {
-    
+    const writtenDate = new Date(index.writtenAt)
+
   return (
-    <div style={{ width: "220px", height: "220px", background: "#ccc" }}>
+    <div className="postit" >
       <div
         style={{
           width: "220px",
@@ -14,10 +14,10 @@ const CheerCom = ({index}) => {
           padding: "20px",
         }}
       >
-        {/* <h1>{index.author.name}</h1> */}
-        {/* <p>{index.message}</p> */}
-        <p>ㅎㅇ</p>
-      </div>
+        <h1>{index.author.name}</h1>
+        <p>{index.message}</p> 
+        <p className="date">{writtenDate.getMonth()}월 {writtenDate.getDate()}일에 작성</p>
+      </div>    
     </div>
   );
 };

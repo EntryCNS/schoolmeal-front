@@ -102,7 +102,7 @@ const SMeal = () => {
             <div id="status">
               <h1>신청현황</h1>
               <p>최근 신청된 급식들을 확인하세요</p>
-              <img style={{width:"70px",height:"70px"}} src={accept}></img>
+              <img style={{width:"85px",height:"85px"}} src={accept}></img>
             </div>
           </Link>
         </div>

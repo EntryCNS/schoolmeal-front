@@ -47,7 +47,6 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
   let hasNext = true
   const loadMore = () => {
     if(!hasNext) return
-
     Axios.get(`${apiConfig.API_ENDPOINT}/api/menus?page=${cnt++}`, {
       headers: {'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}`}
     })
@@ -60,7 +59,6 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
   }
 
   useEffect(loadMore, [])
-  // loadMore()
 
   return (
     <REQ>

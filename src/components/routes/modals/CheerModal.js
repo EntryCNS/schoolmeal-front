@@ -2,9 +2,10 @@ import React, { useState } from "react"
 import apiConfig from "../../../config/apiConfig";
 import axios from "axios";
 import "../../../styles/Cheermodal.css"
+import { ThemeConsumer } from "styled-components";
 
 
-const Cheermodal = ({ handleModalClose, Show }) => {
+const Cheermodal = ({ handleModalClose, Show ,lodeMore}) => {
     const [Cheer, setCheer] = useState("")
 
     const cheerData = () => {
@@ -14,6 +15,10 @@ const Cheermodal = ({ handleModalClose, Show }) => {
                     content: Cheer
                 }, {
                     headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+                }).then((e)=>{
+                    console.log("보냄");
+                    console.log(e.data.body);
+                    lodeMore();
                 })
         }
         else

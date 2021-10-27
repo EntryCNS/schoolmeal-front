@@ -51,7 +51,8 @@ function SignUpmodal({ modalToggle }) {
             "회원가입에 성공하였습니다 :D",
             "성공!",
             2200
-          );
+          )
+          modalToggle();
         })
         .catch((ex) => {
           let resp = ex.response;

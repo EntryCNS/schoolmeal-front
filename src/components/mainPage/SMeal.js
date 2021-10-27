@@ -31,7 +31,7 @@ const SMeal = () => {
         
         const menuList = result.data.body;
         SetNext(hours > 19?0:1)
-        const todayMenu = menuList[new Date().getDate() - 1]; // 배열이므로 -1
+        const todayMenu = menuList[new Date().getDate() - 0]; // 배열이므로 -1
       console.log(todayMenu);
       SetTodayData(todayMenu);
       SetMonthData(result.data.body);
@@ -71,6 +71,7 @@ const SMeal = () => {
             <div id="postMenu">
               <h1>급식신청</h1>
               <p>원하는 급식을 신청하세요</p>
+              <img className="request"></img>
             </div>
           </Link>
 

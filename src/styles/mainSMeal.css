@@ -48,9 +48,14 @@ p {
   color: rgb(255, 101, 55)
 }
 
+.request{
+  background: url(../img/request.png) no-repeat;
+  width: 190px;
+  height: 190px;
+}
 #postMenu{
   width: 22vw;
-  height: 15vh;
+  height: 20vh;
   background-color: #dcdcdc;
   border-radius: 10px;
   padding: 7px;
@@ -61,7 +66,7 @@ p {
 
 #ranking {
   width: 22vw;
-  height: 30vh;
+  height: 25vh;
   background-color: #dcdcdc;
   color: black;
   border-radius: 10px;

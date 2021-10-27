@@ -134,3 +134,10 @@ p {
   border-radius: 10px;
   padding: 7px;
 }
+
+.statusImg{
+  background: url(../img/accept1.png) no-repeat;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}

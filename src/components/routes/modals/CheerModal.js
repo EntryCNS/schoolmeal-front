@@ -6,7 +6,8 @@ import { ThemeConsumer } from "styled-components";
 
 
 const Cheermodal = ({ handleModalClose, Show ,lodeMore}) => {
-    const [Cheer, setCheer] = useState("")
+    const [Cheer, setCheer] = useState("");
+    const cheerInput =  document.getElementById("cheerInput");
 
     const cheerData = () => {
         if (Cheer !=="") {
@@ -16,8 +17,8 @@ const Cheermodal = ({ handleModalClose, Show ,lodeMore}) => {
                 }, {
                     headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
                 }).then((e)=>{
-                    console.log("보냄");
                     console.log(e.data.body);
+                    cheerInput.value = null;
                     lodeMore();
                 })
         }

@@ -12,15 +12,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   const [tog, setTog] = useState(false);
   const [Vote, SetVote] = useState(0);
   const onClick = () => {
-
     setTog(!tog);
-    if (tog) {
-      // UNLIKE(index.id);
-      // console.log(tog);
-    } else {
-      // LIKE(index.id);
-
-    }
   };
   const voteClick = () => {
 

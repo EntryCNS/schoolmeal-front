@@ -7,36 +7,36 @@ import { Link } from "react-router-dom";
 const SMeal = () => {
   const [MonthData, SetMonthData] = useState([]);
   const [TodayData, SetTodayData] = useState(null);
-  const [Next,SetNext] = useState(null);
+  const [Next, SetNext] = useState(null);
   var hours
 
   const timeChecker = (timeIdx) => {
-    const rangeArr = [ 
-      [ 19 ,25],
-      [ 8, 13 ],
-      [ 13, 19 ]
-     ]
+    const rangeArr = [
+      [19, 25],
+      [8, 13],
+      [13, 19]
+    ]
 
-     var now = new Date();
-     hours = now.getHours();
-     const turnOnRed = (hours > rangeArr[timeIdx][0] && hours <= rangeArr[timeIdx][1])
-     return turnOnRed
-    }
-    
-    
-    useEffect(() => {
-      axios
+    var now = new Date();
+    hours = now.getHours();
+    const turnOnRed = (hours > rangeArr[timeIdx][0] && hours <= rangeArr[timeIdx][1])
+    return turnOnRed
+  }
+
+
+  useEffect(() => {
+    axios
       .get(`${apiConfig.API_ENDPOINT}/openapi/schoolmenu?month=${10}`)
       .then((result) => {
-        
+
         const menuList = result.data.body;
-        SetNext(hours > 19?0:1)
+        SetNext(hours > 19 ? 0 : 1)
         const todayMenu = menuList[new Date().getDate() - 0]; // 배열이므로 -1
-      console.log(todayMenu);
-      SetTodayData(todayMenu);
-      SetMonthData(result.data.body);
-    });
-  },[]);
+        console.log(todayMenu);
+        SetTodayData(todayMenu);
+        SetMonthData(result.data.body);
+      });
+  }, []);
 
   return (
     <div className="Meal">
@@ -47,20 +47,25 @@ const SMeal = () => {
           {TodayData == null ? (
             <p>로딩 중..</p>
           ) : (
-            <div>
-              <h1>조식</h1>
-              <div className={`menuCard ${timeChecker(0) ? 'nextMealColor' : ''}`} id="breakfast" >
-                <p>{TodayData.breakfast.join(", ")}</p>
+            <div className="section-container">
+              <div className="section">
+                <div className="Line bre"/>
+                <div className={`menuCard ${timeChecker(0) ? 'nextMealColor' : ''}`} id="breakfast" >
+                  <p>{TodayData.breakfast.join(", ")}</p>
+                </div>
+              </div>
+              <div className="section">
+                <div className="Line aft" />
+                <div className={`menuCard ${timeChecker(1) ? 'nextMealColor' : ''}`} id="lunch">
+                  <p>{TodayData.lunch.join(", ")}</p>
+                </div>
               </div>
 
-              <h1>중식</h1>
-              <div className={`menuCard ${timeChecker(1) ? 'nextMealColor' : ''}`} id="lunch">
-                <p>{TodayData.lunch.join(", ")}</p>
-              </div>
-
-              <h1>석식</h1>
-              <div className={`menuCard ${timeChecker(2) ? 'nextMealColor' : ''}`} id="dinner">
-                <p>{TodayData.dinner.join(", ")}</p>
+              <div className="section">
+                <div className="Line din"/>
+                <div className={`menuCard ${timeChecker(2) ? 'nextMealColor' : ''}`} id="dinner">
+                  <p>{TodayData.dinner.join(", ")}</p>
+                </div>
               </div>
             </div>
           )}
@@ -68,10 +73,10 @@ const SMeal = () => {
 
         <div className="middle">
           <Link to="/request">
-            <div id="postMenu">
+            <div id="request">
               <h1>급식신청</h1>
               <p>원하는 급식을 신청하세요</p>
-              <img className="request"></img>
+              <div className="requestImg"></div>
             </div>
           </Link>
 
@@ -79,6 +84,7 @@ const SMeal = () => {
             <div id="ranking">
               <h1>랭킹</h1>
               <p>메뉴들의 랭킹을 확인하시오</p>
+              <div className="rankingImg"></div>
             </div>
           </Link>
         </div>

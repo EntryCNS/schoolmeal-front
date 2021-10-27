@@ -23,6 +23,32 @@ p {
   align-items: center;
 }
 
+.section-container{
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.section {
+  display: flex;  
+}
+
+.Line{
+  width: 3%;
+  margin-left: 5px;
+ border-radius:3px ;
+}
+
+.bre{
+  background-color:#C15959;
+}
+.aft{
+  background-color: #D9A04C;
+}
+.din{
+background-color: #6F91C5;
+}
 .menu {
   width: 21%;
   height: 62%;
@@ -48,12 +74,17 @@ p {
   color: rgb(255, 101, 55)
 }
 
-.request{
-  background: url(../img/request.png) no-repeat;
-  width: 190px;
-  height: 190px;
+.requestImg{
+  width: 150px;
+  height: 160px;
+  background: url(../img/request1.png) no-repeat;
+  position: absolute;
+  top: 0;
+  margin-top:20px ;
+  margin-left:240px;  
 }
-#postMenu{
+
+#request{
   width: 22vw;
   height: 20vh;
   background-color: #dcdcdc;
@@ -62,6 +93,7 @@ p {
   margin-bottom: 40px;
   color: black;
   box-shadow: 1px 1px 5px 0px gray;
+  position: relative;
 }
 
 #ranking {
@@ -72,6 +104,16 @@ p {
   border-radius: 10px;
   padding: 7px;
   box-shadow: 1px 1px 5px 0px gray;
+  position: relative;
+}
+.rankingImg{
+  width: 150px;
+  height: 160px;
+  background: url(../img/ranking.png) no-repeat;
+  position: absolute;
+  top: 0;
+  margin-top:20px ;
+  margin-left:240px;  
 }
 
 #cheer{

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import evalBackground from "../../img/evalBackground.png";
 import EvalCom from "./EvalCom";
 import EvalNav from "./EvalNav";
+import EvalStar from "./EvalStar";
 
 const Eval = styled.div`
   width: 100%;
@@ -13,6 +14,7 @@ const Eval = styled.div`
 `;
 const EvaluationPage = () => {
   const [state, setState] = useState(1);
+  const [star, setStar] = useState(-1);
   return (
     <Eval>
       <div
@@ -27,6 +29,7 @@ const EvaluationPage = () => {
         }}
       >
         <EvalNav state={state} />
+        <EvalStar star={star} setStar={setStar} />
         <EvalCom state={state} setState={setState} />
       </div>
     </Eval>

@@ -6,9 +6,13 @@ import CheerMain from "./routes/cheer/CheerMain";
 import { connect } from "react-redux";
 import RequestMain from "./routes/requestPage/RequestMain";
 import { LOGGED } from "../reducer/reducer";
+import EvaluationPage from "./Evaluation/EvaluationPage";
 const AppRouter = ({ isLoggedIn, login }) => {
   useEffect(() => {
-    if (localStorage.getItem("jwtRefreshToken")&&localStorage.getItem("jwtAccessToken")) {
+    if (
+      localStorage.getItem("jwtRefreshToken") &&
+      localStorage.getItem("jwtAccessToken")
+    ) {
       login();
     } else {
       return;
@@ -27,6 +31,9 @@ const AppRouter = ({ isLoggedIn, login }) => {
             </Route>
             <Route path="/cheer">
               <CheerMain />
+            </Route>
+            <Route path="/eval">
+              <EvaluationPage />
             </Route>
           </>
         ) : (

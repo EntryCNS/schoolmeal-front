@@ -4,11 +4,13 @@ import axios from "axios";
 import apiConfig from "../../config/apiConfig";
 import { Link } from "react-router-dom";
 import accept from "../../img/accept1.png"
+import ranking from "../../img/ranking1.png"
 
 const SMeal = () => {
   const [MonthData, SetMonthData] = useState([]);
   const [TodayData, SetTodayData] = useState(null);
   const [Next, SetNext] = useState(null);
+
   var hours
 
   const timeChecker = (timeIdx) => {
@@ -24,7 +26,6 @@ const SMeal = () => {
     return turnOnRed
   }
 
-
   useEffect(() => {
     axios
       .get(`${apiConfig.API_ENDPOINT}/openapi/schoolmenu?month=${10}`)
@@ -32,7 +33,7 @@ const SMeal = () => {
 
         const menuList = result.data.body;
         SetNext(hours > 19 ? 0 : 1)
-        const todayMenu = menuList[new Date().getDate() - 0]; // 배열이므로 -1
+        const todayMenu = menuList[new Date().getDate() - 1]; // 배열이므로 -1
         console.log(todayMenu);
         SetTodayData(todayMenu);
         SetMonthData(result.data.body);
@@ -85,7 +86,7 @@ const SMeal = () => {
             <div id="ranking">
               <h1>랭킹</h1>
               <p>메뉴들의 랭킹을 확인하시오</p>
-              <div className="rankingImg"></div>
+              <img style={{width:"300px",height:"192px"}} src={ranking}/>
             </div>
           </Link>
         </div>
@@ -99,10 +100,10 @@ const SMeal = () => {
           </Link>
 
           <Link to="/">
-            <div id="status">
+            <div id="accept">
               <h1>신청현황</h1>
               <p>최근 신청된 급식들을 확인하세요</p>
-              <img style={{width:"85px",height:"85px"}} src={accept}></img>
+              <img style={{width:"85px",height:"85px"}} src={accept} alt="신청현황 이미지"/>
             </div>
           </Link>
         </div>

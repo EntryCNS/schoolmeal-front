@@ -1,0 +1,27 @@
+
+
+.profile-container{
+    position: absolute;
+    z-index: 3;
+    top: 100px;
+    width: 70px;
+    height: 270px;
+    border-radius:0px 10px 10px 0px ;
+    display: flex;
+    align-items: center;
+    background-color: #5FBEBB;
+    cursor: pointer;
+    padding: 10px;
+}
+.profile-container h1{
+    font-family: "을지로체.ttf";
+    color: rgb(49, 37, 37);
+    margin-left: 3px;
+    font-size: 40px;
+}
+
+.profile-container h2{
+    font-size: 30px;
+    margin-left:5px;
+    font-family: "한나는열한살체.ttf";
+}

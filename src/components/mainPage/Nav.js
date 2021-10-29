@@ -7,13 +7,12 @@ const Nav = ({ MainUrl }) => {
   useEffect(() => {
     setCurrentUrl(window.location.href);
   }, [])
-  console.log(CurrentUrl);
   return (
 
-    <div className="nav">
+    <div >
       <div className="transe" />
       {CurrentUrl != MainUrl ? (
-        <div>
+        <div className="nav">
         <ul>
           <li>
             <NavLink activeClassName="selected" to="/request">

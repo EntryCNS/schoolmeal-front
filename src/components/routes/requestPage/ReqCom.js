@@ -1,6 +1,8 @@
 import React, { memo, useState } from "react";
 import "../../../styles/ReqCom.css";
 import vote from "../../../img/vote.png";
+import accept from "../../../img/accept.png"
+import remove from "../../../img/remove.png"
 import axios from "axios";
 import { connect } from "react-redux";
 import { LIKE, UNLIKE } from "../../../reducer/MealReducer";
@@ -9,17 +11,24 @@ import apiConfig from "../../../config/apiConfig";
 
 const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   const [Vote, SetVote] = useState(0);
+  const [Admin, setAdmin] = useState(false)
   const voteClick = () => {
-
     SetVote(Vote + 1);
     axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {}, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
-    }).then(()=>{
+    }).then(() => {
       window.location.reload();
-    }).catch(()=>{
+    }).catch(() => {
       alert("이미 투표하셨습니다")
     })
   }
+
+  const acceptClick =()=>{
+  }
+  const removeClck =()=>{
+    
+  }
+
   return (
     <div className="menuList">
       <h1>{index.menuName}</h1>
@@ -29,7 +38,6 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
           display: "flex",
           alignItems: "center",
         }}
-        // onClick={onClick}
       >
         <img
           style={{ width: "23px", height: "23px" }}
@@ -37,6 +45,17 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
           onClick={voteClick}
         />
         {index.votes}
+        {Admin==true?(
+        <div className="btnContainer" style={{ marginLeft: "150px", cursor: "pointer" }}>
+          <img style={{ width: "50px", marginRight: "10px" }}
+            src={accept}
+          />
+          <img style={{ width: "50px", cursor: "pointer" }}
+            src={remove}
+          />
+        </div>
+        ):(null)}
+
       </p>
 
     </div>

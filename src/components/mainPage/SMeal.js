@@ -5,6 +5,7 @@ import apiConfig from "../../config/apiConfig";
 import { Link } from "react-router-dom";
 import accept from "../../img/accept1.png"
 import ranking from "../../img/ranking1.png"
+import cheer from "../../img/cheer.png"
 
 const SMeal = () => {
   const [MonthData, SetMonthData] = useState([]);
@@ -27,13 +28,16 @@ const SMeal = () => {
   }
 
   useEffect(() => {
+    const month = new Date().getMonth();
     axios
-      .get(`${apiConfig.API_ENDPOINT}/openapi/schoolmenu?month=${10}`)
+      .get(`${apiConfig.API_ENDPOINT}/openapi/schoolmenu?month=${month+1}`)
       .then((result) => {
 
         const menuList = result.data.body;
         SetNext(hours > 19 ? 0 : 1)
-        const todayMenu = menuList[new Date().getDate() - 1]; // 배열이므로 -1
+        const date = new Date().getDate()
+        console.log(date)
+        const todayMenu = menuList[date - 1]; // 배열이므로 -1
         console.log(todayMenu);
         SetTodayData(todayMenu);
         SetMonthData(result.data.body);
@@ -96,6 +100,7 @@ const SMeal = () => {
             <div id="cheer">
               <h1>응원하기</h1>
               <p>맛있는 급식에 보답하세요</p>
+              <img src={cheer} style={{width:"250px",marginLeft:"170px",position:"absolute"}}></img>
             </div>
           </Link>
 

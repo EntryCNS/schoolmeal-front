@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import "../../../styles/ReqCom.css";
 import vote from "../../../img/vote.png";
 import accept from "../../../img/accept.png"
@@ -14,31 +14,49 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   console.log(index.writtenAt)
   console.log(new Date(1634722554864))
   const [Vote, SetVote] = useState(0);
-  const [Admin, setAdmin] = useState(true)
+  const [Permission, setPermission] = useState(true)
   const voteClick = () => {
     SetVote(Vote + 1);
-    axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`,  {
+    axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then(() => {
+      window.location.reload();
     }).catch(() => {
-      swal("이미 투표하셨습니다")
+      swal("이미 투표하셨습니다");
     })
+
   }
 
-  const acceptClick =()=>{
-    swal("수락하셨습니다")
-  }
-  const removeClck =()=>{
-    axios.delete(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}`,{
-      headers:{'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}`}
-    }).then(()=>{
-      console.log("성공")
-    }
-    )
-    .catch(e=>{
-      console.log(e)
-      console.log(index.id)
+  useEffect(()=>{
+    axios.get(`${apiConfig.API_ENDPOINT}/api/users/me`,{
+        headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+    }).then(e=>{
+    }).catch(e=>{
+        console.log(e)
     })
+},[])
+
+  const acceptClick = () => {
+    axios.patch(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/allow`, { isAllowed: true }, {
+      headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+    }).then(() => {
+      console.log("성공")
+    })
+      .catch(e => {
+        console.log(e)
+        console.log(index.id)
+      })
+  }
+  const removeClck = () => {
+    axios.delete(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}`, {
+      headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+    }).then(() => {
+      console.log("성공")
+    })
+      .catch(e => {
+        console.log(e)
+        console.log(index.id)
+      })
   }
 
   return (
@@ -57,20 +75,20 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
           onClick={voteClick}
         />
         {index.votes}
-        {Admin==true?(
-        <div className="btnContainer" style={{ marginLeft: "150px", cursor: "pointer" }}>
-          <img style={{ width: "50px", marginRight: "10px" }}
-            src={accept}
-            onClick={acceptClick}
-          />
-          <img style={{ width: "50px", cursor: "pointer" }}
-            src={remove}
-            onClick={removeClck}
-          />
-        </div>
-        ):(null)}
+        {Permission == true ? (
+          <div className="btnContainer" style={{ marginLeft: "150px", cursor: "pointer" }}>
+            <img style={{ width: "50px", marginRight: "10px" }}
+              src={accept}
+              onClick={acceptClick}
+            />
+            <img style={{ width: "50px", cursor: "pointer" }}
+              src={remove}
+              onClick={removeClck}
+            />
+          </div>
+        ) : (null)}
       </p>
-        <p className="reqDate" style={{color:"gray"}}>{writtenDate.getMonth()}월 {writtenDate.getDate()}일에 작성</p>
+      <p className="reqDate" style={{ color: "gray" }}>{writtenDate.getMonth()}월 {writtenDate.getDate()}일에 작성</p>
     </div>
   );
 });

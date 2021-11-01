@@ -13,14 +13,13 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   let writtenDate = new Date(index.writtenAt)
   console.log(index.writtenAt)
   console.log(new Date(1634722554864))
-  const [Vote, SetVote] = useState(0);
-  const [Permission, setPermission] = useState(true)
+  const [Permission, setPermission] = useState(0)
   const voteClick = () => {
-    SetVote(Vote + 1);
-    axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {
+    axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {}, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
-    }).then(() => {
+    }).then((e) => {
       window.location.reload();
+      console.log(e)
     }).catch(() => {
       swal("이미 투표하셨습니다");
     })
@@ -31,6 +30,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
     axios.get(`${apiConfig.API_ENDPOINT}/api/users/me`,{
         headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then(e=>{
+      setPermission(e.data.permission)
     }).catch(e=>{
         console.log(e)
     })
@@ -51,7 +51,8 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
     axios.delete(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}`, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then(() => {
-      console.log("성공")
+      console.log("성공");
+      window.location.reload();
     })
       .catch(e => {
         console.log(e)
@@ -75,7 +76,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
           onClick={voteClick}
         />
         {index.votes}
-        {Permission == true ? (
+        {Permission == 1 ? (
           <div className="btnContainer" style={{ marginLeft: "150px", cursor: "pointer" }}>
             <img style={{ width: "50px", marginRight: "10px" }}
               src={accept}

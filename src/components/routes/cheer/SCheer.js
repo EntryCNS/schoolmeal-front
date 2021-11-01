@@ -27,7 +27,7 @@ const SCheer = () => {
   const [CheerData, setCheerData] = useState([]);
 
   const loadMore = () => {
-
+    
     axios.get(`${apiConfig.API_ENDPOINT}/api/cheers`, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     })

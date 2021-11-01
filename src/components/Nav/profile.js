@@ -34,6 +34,7 @@ const Profile=()=>{
             buttons:["취소","확인"],
         }).then((whilldelte)=>{
             if(whilldelte){
+                
                 swal("로그아웃에 성공하셨습니다 :)",{
                     icon:"success",
                     buttons:false
@@ -42,6 +43,7 @@ const Profile=()=>{
             }else{
                 swal("로그인이 유지됩니다!");
             }
+            
         });
     }
 

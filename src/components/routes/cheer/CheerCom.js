@@ -16,8 +16,8 @@ const CheerCom = ({index}) => {
       >
         <h1>{index.author.name}</h1>
         <p>{index.message}</p> 
-        <p className="date">{writtenDate.getMonth()}월 {writtenDate.getDate()}일에 작성</p>
-      </div>    
+        <p className="date">{writtenDate.getMonth()+1}월 {writtenDate.getDate()}일에 작성</p>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import Nav from "./Nav";
 import SMeal from "./SMeal";
-import Profile from "../Nav/profile";
+import Profile from "../Nav/profile"
 import "../../styles/mainPage.css";
 
 const MainPage = () => {

@@ -10,7 +10,7 @@
 .modal-background {
   position: absolute;
   /* width: 100vw; */
-  height: 102vh;
+  height: 104vh;
   right: 0;
   top: -1;
   left: 0;
@@ -25,13 +25,13 @@
   width: 370px;
   height: 350px;
   background-color: #FFE971;
-  border-radius: 5px;
+  border-radius: 5px 5px 0px 0px;
   z-index: 1;
 }
 
 #cheerInput{
     width: 100%;
-    height: 90%;
+    height: 100%;
     padding: 10px;
     resize: none;
     font-size: 22px;
@@ -46,7 +46,12 @@
 
 
 #cheerBtn{
-    background-color: blue;
+    background-color:#FFE971 ;
     width: 100%;
     height: 10%;
+    border-radius: 0px 0px 5px 5px;
+    font-size: 20px;
+    border:none;
+    /* border-top: gray; */
+    /* border-radius: 20px; */
 }

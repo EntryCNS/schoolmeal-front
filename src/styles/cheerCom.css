@@ -4,11 +4,16 @@
     height: 220px;
     background-color: #ccc;
     margin: 40px;
+    position: relative;
 }
 
 .date{
-    position: absolute;
+    /* position: absolute;
     top: 50;
-    bottom: 10;
+    bottom: 10; */
+    
+    position:absolute;
+    bottom:10px;
+
     font-size: 12px;
 }

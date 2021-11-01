@@ -1,26 +1,46 @@
 import React, { memo, useState } from "react";
 import "../../../styles/ReqCom.css";
-import heart from "../../../img/heart.png";
-import heart2 from "../../../img/heart2.png";
+import vote from "../../../img/vote.png";
+import accept from "../../../img/accept.png"
+import remove from "../../../img/remove.png"
 import axios from "axios";
 import { connect } from "react-redux";
 import { LIKE, UNLIKE } from "../../../reducer/MealReducer";
 import apiConfig from "../../../config/apiConfig";
-
+import swal from "sweetalert";
 
 const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
-  const [tog, setTog] = useState(false);
+  let writtenDate = new Date(index.writtenAt)
+  console.log(index.writtenAt)
+  console.log(new Date(1634722554864))
   const [Vote, SetVote] = useState(0);
-  const onClick = () => {
-    setTog(!tog);
-  };
+  const [Admin, setAdmin] = useState(true)
   const voteClick = () => {
-
     SetVote(Vote + 1);
-    axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {}, {
+    axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`,  {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+    }).then(() => {
+    }).catch(() => {
+      swal("이미 투표하셨습니다")
     })
   }
+
+  const acceptClick =()=>{
+    swal("수락하셨습니다")
+  }
+  const removeClck =()=>{
+    axios.delete(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}`,{
+      headers:{'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}`}
+    }).then(()=>{
+      console.log("성공")
+    }
+    )
+    .catch(e=>{
+      console.log(e)
+      console.log(index.id)
+    })
+  }
+
   return (
     <div className="menuList">
       <h1>{index.menuName}</h1>
@@ -30,16 +50,27 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
           display: "flex",
           alignItems: "center",
         }}
-        onClick={onClick}
       >
         <img
           style={{ width: "23px", height: "23px" }}
-          src={tog ? heart2 : heart}
+          src={vote}
           onClick={voteClick}
         />
         {index.votes}
+        {Admin==true?(
+        <div className="btnContainer" style={{ marginLeft: "150px", cursor: "pointer" }}>
+          <img style={{ width: "50px", marginRight: "10px" }}
+            src={accept}
+            onClick={acceptClick}
+          />
+          <img style={{ width: "50px", cursor: "pointer" }}
+            src={remove}
+            onClick={removeClck}
+          />
+        </div>
+        ):(null)}
       </p>
-
+        <p className="reqDate" style={{color:"gray"}}>{writtenDate.getMonth()}월 {writtenDate.getDate()}일에 작성</p>
     </div>
   );
 });

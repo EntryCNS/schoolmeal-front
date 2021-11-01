@@ -34,7 +34,6 @@ const SCheer = () => {
       .then((e) => {
         console.log(e.data.body)
         setCheerData(e.data.body)
-        // console.log(CheerData)
         console.log("받아옴")
       })
   }

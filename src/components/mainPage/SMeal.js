@@ -87,20 +87,20 @@ const SMeal = () => {
           </Link>
 
           <Link to="/">
-            <div id="ranking">
+            <div id="ranking" style = {{position:"relative"}}>
               <h1>이달의 랭킹</h1>
               <p>급식의 질 향상의 주역들입니다.</p>
-              <img style={{width:"300px",height:"192px"}} src={ranking}/>
+              <img style={{width:"270px",height:"172.8px",top:"73px"}} src={ranking}/>
             </div>
           </Link>
         </div>
 
         <div className="back">
           <Link to="/cheer">
-            <div id="cheer">
+            <div id="cheer"  style = {{position:"relative"}}>
               <h1>응원하기</h1>
               <p>맛있는 급식에 보답하세요</p>
-              <img src={cheer} style={{width:"250px",marginLeft:"170px",position:"absolute"}}></img>
+              <img src={cheer} style={{width:"250px",marginLeft:"170px",position:"absolute",top:"70px"}}></img>
             </div>
           </Link>
 
@@ -108,7 +108,7 @@ const SMeal = () => {
             <div id="accept">
               <h1>꿈은 이루어진다</h1>
               <p>최근 반영된 급식 메뉴를 확인하세요</p>
-              <img style={{width:"85px",height:"85px"}} src={accept} alt="신청현황 이미지"/>
+              <img src={accept} style={{width:"80px",height:"80px"}} alt="신청현황 이미지"/>
             </div>
           </Link>
         </div>

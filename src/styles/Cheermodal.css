@@ -16,14 +16,16 @@
   left: 0;
   bottom: 0;
   background-color: rgba(10, 10, 10, 0.86);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-card {
   margin: 0 auto;
   display: block;
-  margin-top: 250px;
   width: 370px;
-  height: 350px;
+  height: 300px;
   background-color: #FFE971;
   border-radius: 5px 5px 0px 0px;
   z-index: 1;
@@ -32,9 +34,11 @@
 #cheerInput{
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 20px;
     resize: none;
     font-size: 22px;
+    /* font-size: 2px; */
+    border:none;
 }
 #cheerInput::placeholder{
     color: #AEAEAE;
@@ -44,14 +48,14 @@
     outline: none;
 }
 
-
 #cheerBtn{
     background-color:#FFE971 ;
     width: 100%;
-    height: 10%;
+    height: 12%;
     border-radius: 0px 0px 5px 5px;
     font-size: 20px;
     border:none;
+    border-top:dashed gray 2px;
     /* border-top: gray; */
     /* border-radius: 20px; */
 }

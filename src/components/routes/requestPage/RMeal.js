@@ -70,12 +70,16 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
         <div
           className="RMealContainer"
           style={{
-            width: "90%",
+            width:"85%",
             overflow: "scroll",
             display: "flex",
             justifyContent: "flex-start",
             flexWrap: "wrap",
-            borderColor:"red"
+            borderWidth:"6px",
+            borderStyle:"solid",
+            borderColor:"#E59419",
+            borderRadius:"10px",
+            // justifyContent:"space-around"
           }}
         >
           {MenuData.map((i) => (

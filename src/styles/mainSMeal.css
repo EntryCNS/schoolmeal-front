@@ -139,3 +139,17 @@ p {
 #accept img {
   margin-left: 300px;
 }
+
+.middle h1,
+.back h1{
+  margin-left: 10px;
+  margin-top: 10px;  
+}
+
+.front h1{
+  margin-top: 15px;
+  margin-left: 15px;
+  width: ;
+}
+
+

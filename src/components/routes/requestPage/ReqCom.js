@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { LIKE, UNLIKE } from "../../../reducer/MealReducer";
 import apiConfig from "../../../config/apiConfig";
 import swal from "sweetalert";
+import SizeContext from "antd/lib/config-provider/SizeContext";
 
 const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   let writtenDate = new Date(index.writtenAt)
@@ -64,21 +65,25 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   }
 
   return (
-    <div className="menuList">
+    <div className="menuList" style = {{position:"relative"}}>
       <h1>{index.menuName}</h1>
       <p>{index.description}</p>
       <p
+      className="menuListDate"
         style={{
           display: "flex",
           alignItems: "center",
+          marginBottom:"0px"
         }}
       >
+        <div style={{marginLeft:"15px",marginBottom:"15px",position:"absolute",left:"0px",bottom:"0px"}}>
         <img
-          style={{ width: "23px", height: "23px" }}
+          style={{ width: "30px", height: "30px",cursor:"pointer"}}
           src={vote}
           onClick={voteClick}
         />
-        {index.votes}
+        <span style={{marginLeft:"5px"}}>{index.votes}</span>
+        </div>
         {Permission == 1 ? (
           <div className="btnContainer" style={{ marginLeft: "150px", cursor: "pointer" }}>
             <img style={{ width: "50px", marginRight: "10px" }}
@@ -92,7 +97,8 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
           </div>
         ) : (null)}
       </p>
-      <p className="reqDate" style={{ color: "gray" }}>{writtenDate.getMonth()+1}월 {writtenDate.getDate()}일에 작성</p>
+      <p className="reqDate" style={{ color: "gray",marginTop:"0px",fontSize:"20px",
+      float:"right",position:"absolute",right:"0px",bottom:"0px"}}>{writtenDate.getMonth()+1}월 {writtenDate.getDate()}일에 작성</p>
     </div>
   );
 });

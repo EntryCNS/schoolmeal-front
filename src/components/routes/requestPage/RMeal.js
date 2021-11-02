@@ -69,12 +69,14 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
       </select>
       <Div>
         <div
+          className="RMealContainer"
           style={{
             width: "90%",
             overflow: "scroll",
             display: "flex",
             justifyContent: "flex-start",
             flexWrap: "wrap",
+            borderColor:"red"
           }}
         >
           {MenuData.map((i) => (

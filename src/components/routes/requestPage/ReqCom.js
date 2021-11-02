@@ -89,7 +89,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
           </div>
         ) : (null)}
       </p>
-      <p className="reqDate" style={{ color: "gray" }}>{writtenDate.getMonth()}월 {writtenDate.getDate()}일에 작성</p>
+      <p className="reqDate" style={{ color: "gray" }}>{writtenDate.getMonth()+1}월 {writtenDate.getDate()}일에 작성</p>
     </div>
   );
 });

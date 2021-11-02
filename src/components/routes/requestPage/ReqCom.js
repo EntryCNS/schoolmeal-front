@@ -26,7 +26,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
 
   }
 
-  useEffect(()=>{
+ const hi =  useEffect(()=>{
     axios.get(`${apiConfig.API_ENDPOINT}/api/users/me`,{
         headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then(e=>{
@@ -50,8 +50,11 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   const removeClck = () => {
     axios.delete(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}`, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
-    }).then(() => {
+    }).then((res) => {
       console.log("성공");
+      // axios.get(); cns 방법
+      // 
+      //res.data // 류수아 법
       window.location.reload();
     })
       .catch(e => {

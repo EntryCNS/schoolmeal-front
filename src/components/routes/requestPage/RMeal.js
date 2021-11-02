@@ -54,7 +54,6 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
       console.log(e.data.body);
       hasNext = e.data.body.hasNext;
       SetMenuData(e.data.body.items);
-
     })
   }
 

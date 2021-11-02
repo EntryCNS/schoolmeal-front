@@ -27,7 +27,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
 
   }
 
- const hi =  useEffect(()=>{
+   useEffect(()=>{
     axios.get(`${apiConfig.API_ENDPOINT}/api/users/me`,{
         headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then(e=>{
@@ -42,6 +42,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then(() => {
       console.log("성공")
+      window.location.reload();
     })
       .catch(e => {
         console.log(e)
@@ -52,10 +53,6 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
     axios.delete(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}`, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then((res) => {
-      console.log("성공");
-      // axios.get(); cns 방법
-      // 
-      //res.data // 류수아 법
       window.location.reload();
     })
       .catch(e => {

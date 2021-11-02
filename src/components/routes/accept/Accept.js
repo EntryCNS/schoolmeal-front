@@ -2,8 +2,8 @@ import React, {  useEffect, useCallback, useState } from "react";
 import styled from "styled-components";
 import "../../../styles/RMeal.css";
 import apiConfig from "../../../config/apiConfig";
-import Axios from 'axios'
 import axios from "axios";
+import AcceptCom from "./AcceptCom"
 
 const Div = styled.div`
   width: 100%;
@@ -56,8 +56,8 @@ const Accept = () => {
             borderColor:"#86CF64"
           }}
         >
+          {/* <AcceptCom/> */}
         </div>
-        
       </Div>
     </AccpetContainer>
   );

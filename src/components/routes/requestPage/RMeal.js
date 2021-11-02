@@ -47,7 +47,7 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
   let hasNext = true
   const loadMore = () => {
     if(!hasNext) return
-    Axios.get(`${apiConfig.API_ENDPOINT}/api/menus?page=${cnt++}`, {
+    Axios.get(`${apiConfig.API_ENDPOINT}/api/menus?page=${cnt++}&option=FIND_NOTALLOWED&sortBy=votes`, {
       headers: {'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}`}
     })
     .then((e)=>{

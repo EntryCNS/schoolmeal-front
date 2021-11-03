@@ -8,12 +8,9 @@ import { connect } from "react-redux";
 import { LIKE, UNLIKE } from "../../../reducer/MealReducer";
 import apiConfig from "../../../config/apiConfig";
 import swal from "sweetalert";
-import SizeContext from "antd/lib/config-provider/SizeContext";
 
 const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   let writtenDate = new Date(index.writtenAt)
-  console.log(index.writtenAt)
-  console.log(new Date(1634722554864))
   const [Permission, setPermission] = useState(0)
   const voteClick = () => {
     axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {}, {
@@ -27,7 +24,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
 
   }
 
-  useEffect(()=>{
+   useEffect(()=>{
     axios.get(`${apiConfig.API_ENDPOINT}/api/users/me`,{
         headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then(e=>{
@@ -42,6 +39,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then(() => {
       console.log("성공")
+      window.location.reload();
     })
       .catch(e => {
         console.log(e)
@@ -51,8 +49,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   const removeClck = () => {
     axios.delete(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}`, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
-    }).then(() => {
-      console.log("성공");
+    }).then((res) => {
       window.location.reload();
     })
       .catch(e => {

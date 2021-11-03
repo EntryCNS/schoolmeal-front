@@ -16,18 +16,18 @@ const Nav = ({ MainUrl }) => {
         <ul>
           <li>
             <NavLink activeClassName="selected" to="/request">
-              신청하기
+              메뉴신청
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="selected" to="/">
-              신청현황
+            <NavLink activeClassName="selected" to="/accept">
+              꿈은 이루어진다
             </NavLink>
           </li>
           <li>
             <NavLink activeClassName="selected" to="/">
               {" "}
-              랭킹
+              이달의 랭킹
             </NavLink>
           </li>
           <li>

@@ -104,7 +104,7 @@ const SMeal = () => {
             </div>
           </Link>
 
-          <Link to="/">
+          <Link to="/accept">
             <div id="accept">
               <h1>꿈은 이루어진다</h1>
               <p>최근 반영된 급식 메뉴를 확인하세요</p>

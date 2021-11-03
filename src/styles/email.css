@@ -1,0 +1,77 @@
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emailContainer{
+    width: 500px;
+    height: 300px;
+    /* /* background-color: tomato; */
+} 
+.emailContainer h1{
+    color: #5FBEBB;
+}
+
+p {
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    word-break: keep-all;
+}
+
+hr {
+    margin-top: 12px;
+}
+
+#emailBtn{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    background-color: turquoise;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    margin-top: 14px;
+}
+
+.warn {
+    color: gray;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.titleBanner {
+    display: flex;
+    height: fit-content;
+    margin-bottom: 12px;
+}
+
+.titleBanner h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: rgb(47, 202, 187);
+    vertical-align: text-bottom;
+}
+
+.titleBanner h2 {
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: rgb(27, 146, 134);
+    vertical-align: text-bottom;
+}
+
+.subTitle {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.filler {
+    flex: 1;
+}

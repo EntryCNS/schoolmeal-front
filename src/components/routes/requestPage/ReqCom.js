@@ -8,12 +8,9 @@ import { connect } from "react-redux";
 import { LIKE, UNLIKE } from "../../../reducer/MealReducer";
 import apiConfig from "../../../config/apiConfig";
 import swal from "sweetalert";
-import SizeContext from "antd/lib/config-provider/SizeContext";
 
 const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   let writtenDate = new Date(index.writtenAt)
-  console.log(index.writtenAt)
-  console.log(new Date(1634722554864))
   const [Permission, setPermission] = useState(0)
   const voteClick = () => {
     axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {}, {

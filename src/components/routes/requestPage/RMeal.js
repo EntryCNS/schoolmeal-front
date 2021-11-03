@@ -38,6 +38,7 @@ const REQ = styled.div`
 const RMeal = ({ modal, toggle, dumiDataQ }) => {
   
   const [MenuData,SetMenuData] = useState([]);
+  const [Sort, setSort] = useState("votes");
 
   const onClick = useCallback(() => {
     toggle();
@@ -47,7 +48,7 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
   let hasNext = true
   const loadMore = () => {
     if(!hasNext) return
-    Axios.get(`${apiConfig.API_ENDPOINT}/api/menus?page=${cnt++}&option=FIND_NOTALLOWED&sortBy=votes`, {
+    Axios.get(`${apiConfig.API_ENDPOINT}/api/menus?page=${cnt++}&option=FIND_NOTALLOWED&sortBy=${Sort}`, {
       headers: {'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}`}
     })
     .then((e)=>{
@@ -57,14 +58,20 @@ const RMeal = ({ modal, toggle, dumiDataQ }) => {
     })
   }
 
-  useEffect(loadMore, [])
+  const changeSort =()=>{
+   const sort = document.querySelector(".sort");
+   console.log(sort)
+    setSort(sort.options[sort.selectedIndex].value)
+    console.log(Sort)
+  }
+
+  useEffect(loadMore, [Sort])
 
   return (
     <REQ>
-      <select name="sort" className="sort">
-        <option value="popularity">인기</option>
-        <option value="recently">최근</option>
-        <option value="name">이름</option>
+      <select name="sort" className="sort" onChange={changeSort}>
+        <option value="votes">인기</option>
+        <option value="writtenAt">최근</option>
       </select>
       <Div>
         <div

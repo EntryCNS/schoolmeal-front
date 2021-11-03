@@ -1,9 +1,12 @@
 import React from "react";
 import Accept from "./Accept";
 
-const AcceptCom  = (()=>{
+const AcceptCom  = (({index})=>{
 
+    return(
     
+        <h1>{index.menuName}</h1>
+    )
 
 })
 

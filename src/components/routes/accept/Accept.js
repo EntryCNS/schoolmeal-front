@@ -33,12 +33,23 @@ const AccpetContainer = styled.div`
 
 const Accept = () => {
     
-    const [AcceptMenuData,setAceeptMenuData] = useState([]);
+    const [AcceptMenuData,setAcceptMenuData] = useState([]);
+    let cnt = 0 ;
+    const GetAcceptMenu = () => {
+        axios.get(`${apiConfig.API_ENDPOINT}/api/menus?page=${cnt++}&option=FIND_ALLOWED&sortBy=votes`,{
+          headers:{'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}`}
+        })
+        .then((e)=>{
+          setAcceptMenuData(e.data.items);
+          console.log(AcceptMenuData)
+          console.log(e.data)
+        }).catch((e)=>{
+          console.log(e)
+        })
+    }
 
-    const GetAcceptMenu = useEffect(() => {
-        axios.get(`${apiConfig.API_ENDPOINT}/`)
-    }, [])
-
+    useEffect(GetAcceptMenu, []);
+    
   return (
     <AccpetContainer>
       <Div>
@@ -56,7 +67,9 @@ const Accept = () => {
             borderColor:"#86CF64"
           }}
         >
-          {/* <AcceptCom/> */}
+          {/* {AcceptMenuData.map((i)=>{
+            <AcceptCom index={i} />
+          })} */}
         </div>
       </Div>
     </AccpetContainer>

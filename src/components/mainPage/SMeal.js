@@ -86,7 +86,7 @@ const SMeal = () => {
             </div>
           </Link>
 
-          <Link to="/">
+          <Link to="/ranking">
             <div id="ranking" style = {{position:"relative"}}>
               <h1>이달의 랭킹</h1>
               <p>급식의 질 향상의 주역들입니다.</p>

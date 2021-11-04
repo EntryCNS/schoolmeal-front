@@ -8,6 +8,8 @@ import { connect } from "react-redux";
 import RequestMain from "./routes/requestPage/RequestMain";
 import { LOGGED } from "../reducer/reducer";
 import EvaluationPage from "./Evaluation/EvaluationPage";
+import RankingPage from "./routes/ranking/RankingPage"
+
 const AppRouter = ({ isLoggedIn, login }) => {
   useEffect(() => {
     if (
@@ -38,6 +40,9 @@ const AppRouter = ({ isLoggedIn, login }) => {
             </Route>
             <Route path="/accept">
               <AcceptMain/>
+              </Route>
+              <Route path="/ranking">
+                <RankingPage/>
               </Route>
           </>
         ) : (

@@ -39,6 +39,7 @@ function LoginForm({ setIsLoggedIn, signUpModalOn, modalToggle }) {
       })
       .catch((ex) => {
         let resp = ex.response;
+        
         console.log(resp);
         NotificationManager.warning(
           "다시 시도해 주세요 :(",

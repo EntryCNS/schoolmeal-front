@@ -48,7 +48,7 @@ function SignUpmodal({ modalToggle }) {
         })
         .then(() => {
           NotificationManager.success(
-            "회원가입에 성공하였습니다 :D",
+            "이메일함을 확인해주세요. :D",
             "성공!",
             2200
           )

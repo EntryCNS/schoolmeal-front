@@ -12,16 +12,16 @@ import swal from "sweetalert";
 const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
   let writtenDate = new Date(index.writtenAt)
   const [Permission, setPermission] = useState(0)
+
   const voteClick = () => {
     axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {}, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then((e) => {
-      window.location.reload();
+      // window.location.reload();
       console.log(e)
     }).catch(() => {
       swal("이미 투표하셨습니다");
     })
-
   }
 
    useEffect(()=>{
@@ -32,7 +32,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
     }).catch(e=>{
         console.log(e)
     })
-},[])
+},[index])
 
   const acceptClick = () => {
     axios.patch(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/allow`, { isAllowed: true }, {
@@ -43,9 +43,9 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
     })
       .catch(e => {
         console.log(e)
-        console.log(index.id)
       })
   }
+  
   const removeClck = () => {
     axios.delete(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}`, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }

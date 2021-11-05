@@ -1,10 +1,38 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { withRouter } from "react-router";
 import { CSSTransition } from "react-transition-group";
 import { SwitchTransition } from "react-transition-group";
+import apiConfig from "../../config/apiConfig";
 import "./EvalCss.css";
+import EvalStar from "./EvalStar";
 import EvalWrite from "./EvalWrite";
 
-const EvalCom = ({ state, setState }) => {
+const EvalCom = withRouter(({ star, setStar, state, setState, history }) => {
+  const [m, setM] = useState("");
+  const onClick = () => {
+    axios
+      .post(
+        `${apiConfig.API_ENDPOINT}/api/reviews`,
+        {
+          reviewTime:
+            state === 1 ? "BREAKFAST" : state === 2 ? "LUNCH" : "DINNER",
+          message: m,
+          rate: star,
+        },
+        {
+          headers: {
+            "x-access-token": `Bearer ${localStorage.getItem(
+              "jwtAccessToken"
+            )}`,
+          },
+        }
+      )
+      .then((res) => {
+        history.push("/");
+      });
+  };
+
   return (
     <div>
       <SwitchTransition>
@@ -16,12 +44,13 @@ const EvalCom = ({ state, setState }) => {
           classNames="fade"
         >
           <div>
+            <EvalStar star={star} setStar={setStar} />
             {state === 1 ? (
-              <EvalWrite ti={1} />
+              <EvalWrite setM={setM} m={m} ti={1} />
             ) : state === 2 ? (
-              <EvalWrite ti={2} />
+              <EvalWrite setM={setM} m={m} ti={2} />
             ) : (
-              <EvalWrite ti={3} />
+              <EvalWrite setM={setM} m={m} ti={3} />
             )}
             <button
               style={{
@@ -35,37 +64,15 @@ const EvalCom = ({ state, setState }) => {
                 fontSize: "20px",
               }}
               className="evabut"
+              onClick={onClick}
             >
               제출하기
             </button>
-            <div style={{ textAlign: "right" }}>
-              <button
-                onClick={() => {
-                  if (state !== 3) {
-                    setState((state) => state + 1);
-                  } else {
-                    setState(1);
-                  }
-                }}
-                style={{
-                  color: "#5FBEBB",
-                  background: "none",
-                  border: "1px solid #5FBEBB",
-                  borderRadius: "10px",
-                  width: "80px",
-                  marginTop: "5px",
-                  fontSize: "20px",
-                  padding: "7px",
-                }}
-              >
-                {state === 1 ? "점심" : state === 2 ? "저녁" : "아침"}
-              </button>
-            </div>
           </div>
         </CSSTransition>
       </SwitchTransition>
     </div>
   );
-};
+});
 
 export default EvalCom;

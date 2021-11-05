@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import RequestMain from "./routes/requestPage/RequestMain";
 import { LOGGED } from "../reducer/reducer";
 import EvaluationPage from "./Evaluation/EvaluationPage";
+import CheckReviewPage from "./routes/checkReview/CheckReviewPage";
 import RankingPage from "./routes/ranking/RankingPage"
 
 const AppRouter = ({ isLoggedIn, login }) => {
@@ -39,8 +40,11 @@ const AppRouter = ({ isLoggedIn, login }) => {
               <EvaluationPage />
             </Route>
             <Route path="/accept">
-              <AcceptMain/>
-              </Route>
+              <AcceptMain />
+            </Route>
+            <Route path="/checkreview">
+              <CheckReviewPage />
+            </Route>
               <Route path="/ranking">
                 <RankingPage/>
               </Route>

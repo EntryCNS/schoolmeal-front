@@ -28,9 +28,13 @@ const EvaluationPage = () => {
           flexDirection: "column",
         }}
       >
-        <EvalNav state={state} />
-        <EvalStar star={star} setStar={setStar} />
-        <EvalCom state={state} setState={setState} />
+        <EvalNav state={state} setState={setState} />
+        <EvalCom
+          state={state}
+          star={star}
+          setStar={setStar}
+          setState={setState}
+        />
       </div>
     </Eval>
   );

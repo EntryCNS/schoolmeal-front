@@ -1,11 +1,11 @@
 import React from "react";
 
-const EvalWrite = () => {
+const EvalWrite = ({ m, setM }) => {
   return (
     <div
       style={{
-        width: "500px",
-        height: "350px",
+        width: "100%",
+        height: "300px",
         borderRadius: "10px",
         backgroundColor: "rgba(255,255,255,0.3)",
         padding: "25px",
@@ -13,22 +13,12 @@ const EvalWrite = () => {
         flexDirection: "column",
       }}
     >
-      <input
-        type="text"
-        placeholder="title"
-        style={{
-          height: "50px",
-          padding: "10px",
-          outline: "none",
-          background: "none",
-          border: "none",
-          fontSize: "25px",
-          borderBottom: "1px solid white",
-          color: "white",
-        }}
-      />
       <textarea
         placeholder="description"
+        value={m}
+        onChange={(e) => {
+          setM(e.target.value);
+        }}
         style={{
           height: "300px",
           padding: "10px",

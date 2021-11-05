@@ -35,7 +35,7 @@ const REQ = styled.div`
   padding-bottom: 0;
 `;
 
-const RMeal = ({ modal, toggle, dumiDataQ }) => {
+const RMeal = ({ modal, toggle }) => {
   
   const [MenuData,SetMenuData] = useState([]);
   const [Sort, setSort] = useState("votes");

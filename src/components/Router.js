@@ -9,6 +9,8 @@ import RequestMain from "./routes/requestPage/RequestMain";
 import { LOGGED } from "../reducer/reducer";
 import EvaluationPage from "./Evaluation/EvaluationPage";
 import CheckReviewPage from "./routes/checkReview/CheckReviewPage";
+import RankingPage from "./routes/ranking/RankingPage"
+
 const AppRouter = ({ isLoggedIn, login }) => {
   useEffect(() => {
     if (
@@ -43,6 +45,9 @@ const AppRouter = ({ isLoggedIn, login }) => {
             <Route path="/checkreview">
               <CheckReviewPage />
             </Route>
+              <Route path="/ranking">
+                <RankingPage/>
+              </Route>
           </>
         ) : (
           <Route exact path="/">

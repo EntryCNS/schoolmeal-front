@@ -25,7 +25,7 @@ const Nav = ({ MainUrl }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="selected" to="/">
+            <NavLink activeClassName="selected" to="/ranking">
               {" "}
               이달의 랭킹
             </NavLink>

@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "../../mainPage/Nav";
-import SMeal from "../../mainPage/SMeal";
 import Cheerback from "./Cheerback";
 
 const CheerPage = () => {

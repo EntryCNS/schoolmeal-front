@@ -81,18 +81,46 @@ const RMeal = ({ modal, toggle }) => {
             overflow: "scroll",
             display: "flex",
             justifyContent: "flex-start",
-            flexWrap: "wrap",
+            flexFlow: "column nowrap",
             borderWidth:"6px",
             borderStyle:"solid",
             borderColor:"#E59419",
             borderRadius:"10px",
+            position:"relative"
             // justifyContent:"space-around"
           }}
         >
+        <div className="RMeal-comment"
+        style={{
+          position:"absolute",
+          left:"50px",
+          fontSize:"30px",
+          top:"40px"
+        }}>
+          신청됨
+        </div>
+        <div
+        className="RMeal-comment"
+        style = {{
+          position:"absolute",
+          left:"55px",
+          top:"80px",
+          fontSize:"20px"
+        }}
+        >
+          수락을 기다려 주세요
+          <div className="RMeal-container"
+          style = {{
+            display:"flex",
+            flexFlow:"wrap"
+          }}
+          >
           {MenuData.map((i) => (
             <ReqCom index={i}/>
           ))}
-        </div>
+          </div>
+          </div>
+          </div>
       </Div>
       <button className="addBut" onClick={onClick}>
         +

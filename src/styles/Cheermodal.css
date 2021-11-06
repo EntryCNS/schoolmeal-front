@@ -56,6 +56,7 @@
     font-size: 20px;
     border:none;
     border-top:dashed gray 2px;
+    cursor: pointer;
     /* border-top: gray; */
     /* border-radius: 20px; */
 }

@@ -3,6 +3,9 @@ import '../../styles/profile.css';
 import swal from 'sweetalert';
 import axios from "axios";
 import apiConfig from "../../config/apiConfig";
+import { jsxAttribute } from "@babel/types";
+import { Button, message } from "antd";
+import { SHOW_ALL } from "rc-tree-select";
 
 const Profile=()=>{
     const [UserName,setUserName] = useState("");
@@ -19,8 +22,19 @@ const Profile=()=>{
             headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
         }).then(e=>{
             setUserName(e.data.name)
-        }).catch(e=>{
-            console.log(e)
+        }).catch((e) =>{
+           let data = JSON.stringify(e);
+           data = JSON.parse(data);
+            console.log(data.message);
+            if(data.message=="Request failed with status code 401"){
+                swal({
+                    title:"세션이 만료되었습니다",
+                    text:"다시 로그인 해주세요.",
+                    buttons:["획인"],
+                }).then(()=>{
+                    logOut();
+                })
+            }
         })
     },[])
 
@@ -34,7 +48,6 @@ const Profile=()=>{
             buttons:["취소","확인"],
         }).then((whilldelte)=>{
             if(whilldelte){
-                
                 swal("로그아웃에 성공하셨습니다 :)",{
                     icon:"success",
                     buttons:false

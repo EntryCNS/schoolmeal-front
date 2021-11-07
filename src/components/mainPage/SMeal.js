@@ -41,7 +41,7 @@ const SMeal = () => {
         console.log(todayMenu);
         SetTodayData(todayMenu);
         SetMonthData(result.data.body);
-      });
+      })
   }, []);
 
   return (

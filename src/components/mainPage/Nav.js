@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/mainNav.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Nav = ({ MainUrl }) => {
   const [CurrentUrl, setCurrentUrl] = useState("")

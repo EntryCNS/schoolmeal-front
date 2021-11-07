@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-// import RegisterForm from "../register/registerForm";
 import axios from "axios";
 import apiConfig from "../../../config/apiConfig";
 import {
@@ -9,10 +8,10 @@ import {
 import "../../../styles/registerForm.css";
 import { MODALTOGGLE } from "../../../reducer/reducer";
 import { connect } from "react-redux";
+import swal from "sweetalert";
 
 function SignUpmodal({ modalToggle }) {
   const [name, setName] = useState("");
-
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
@@ -20,9 +19,29 @@ function SignUpmodal({ modalToggle }) {
   const [email, setEmail] = useState("");
   const [birth, setBirth] = useState("");
 
+
   const check = (e) => {
     setPassword2(e.target.value);
   };
+
+  const signUPCheck= ()=>{
+    const checkName = 	/^[가-힣]+$/ 
+    const checkId = /^[a-z]+[a-z0-9]{5,19}$/g
+    const checkBirth = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/
+    const checkPassword = /^[a-zA-Z0-9]{8,15}$/
+    if(!checkName.test(name) ){
+      swal("한국어 이름만 가능합니다");
+    }
+    else if(!checkId.test(id))
+      swal("아이디는 영문자로 시작하는 6~20자리를 사용해주세요.")
+    else if(!checkBirth.test(birth))
+      swal("생년월일을 다시 확인해주세요")
+    else if(!checkPassword.test(password))
+      swal("비밀번호는 숫자와 영문자 조합으로 8~15자리를 사용해야 합니다.")
+    else {
+      postData();
+    }
+  }
 
   useEffect(() => {
     if (!password2) {
@@ -37,7 +56,6 @@ function SignUpmodal({ modalToggle }) {
 
   const postData = useCallback(
     (e) => {
-      e.preventDefault();
       axios
         .post(`${apiConfig.API_ENDPOINT}/auth/signup`, {
           name,
@@ -56,7 +74,16 @@ function SignUpmodal({ modalToggle }) {
         })
         .catch((ex) => {
           let resp = ex.response;
-          console.log(resp);
+          let message = resp.data.message
+          console.log(message)
+
+          if(message=="user id is already exists"){
+            swal("이미 아이디가 존재합니다")
+          }else if(message=="user id and email is already exists"){
+            swal("이미 아이디와 이메일이 존재합니다.")
+          }else if(message=="user email is already exists"){
+            swal("이미 이메일이 존재합니다.")
+          }
           NotificationManager.warning(
             "다시 시도해 주세요 :(",
             "잘못된 ID 또는 비밀번호",
@@ -80,6 +107,7 @@ function SignUpmodal({ modalToggle }) {
           <input
             value={name}
             className="register-input-text"
+            required
             onChange={(e) => {
               setName(e.target.value);
             }}
@@ -89,6 +117,7 @@ function SignUpmodal({ modalToggle }) {
           <input
             className="register-input-text"
             value={id}
+            required
             onChange={(e) => {
               setId(e.target.value);
             }}
@@ -99,6 +128,7 @@ function SignUpmodal({ modalToggle }) {
             className="register-input-text"
             value={birth}
             type="text"
+            required
             onChange={(e) => {
               setBirth(e.target.value);
             }}
@@ -108,6 +138,7 @@ function SignUpmodal({ modalToggle }) {
           <input
             className="register-input-text"
             value={email}
+            required
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -125,6 +156,7 @@ function SignUpmodal({ modalToggle }) {
             }}
             type="password"
             placeholder="비밀번호"
+            required
             className="register-input-text"
           />
           <div className="register-bottomLine" />
@@ -145,9 +177,9 @@ function SignUpmodal({ modalToggle }) {
           )}
           <input
             className="bamin-font6 register_btn"
-            onClick={postData}
+            onClick={signUPCheck}
             type="submit"
-            value="가입"
+            value="가입"  
           />
         </div>
       </div>

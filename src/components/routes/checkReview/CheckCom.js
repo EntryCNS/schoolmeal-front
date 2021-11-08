@@ -5,6 +5,7 @@ import apiConfig from "../../../config/apiConfig";
 import evalBackground from "../../../img/evalBackground.png";
 import EvalNav from "./CheckNav";
 import CheckRE from "./CheckRE";
+import "../../../styles/CheckCom.css"
 
 const Eval = styled.div`
   width: 100%;
@@ -17,13 +18,13 @@ const Eval = styled.div`
 const getDateByIndex = (idx) => {
   const unit = 1000 * 60 * 60 * 24;
   const date = new Date(Date.now() - unit * idx);
-  return `${date.getMonth()}월 ${date.getDate()}일`;
+  return `${date.getMonth()+1}월 ${date.getDate()}일`;
 };
 
 const EvaluationPage = () => {
   const [init, setInit] = useState(null);
   const [state, setState] = useState(1);
-  const [star, setStar] = useState(-1);
+  // const [star, setStar] = useState(-1);
 
   useEffect(() => {
     axios
@@ -57,6 +58,7 @@ const EvaluationPage = () => {
       >
         <EvalNav state={state} setState={setState} />
         <div
+          className="scrool"
           style={{
             height: "54%",
             width: "80%",

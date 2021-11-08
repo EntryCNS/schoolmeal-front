@@ -59,6 +59,7 @@ p {
   background-color: #dcdcdc;
   border-radius: 10px;
   box-shadow: 1px 1px 5px 0px gray;
+  position: relative;
 }
 
 .menu h1,
@@ -165,4 +166,16 @@ p {
   line-height: 130%;
   max-height: 30vh;
   font-family: "한나는열한살체.ttf";
+}
+
+button{
+  background-color: transparent ;
+  border: none;
+  margin-right: 7px;
+}
+
+.menuChangeBtn{
+  position: absolute;
+  top: 20px;
+  left: 310px;
 }

@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import CheerCom from "./CheerCom";
 import axios from "axios";
 import apiConfig from "../../../config/apiConfig";
-import { logDOM } from "@testing-library/react";
 
 
 const REQ = styled.div`

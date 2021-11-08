@@ -6,14 +6,15 @@ import { Link } from "react-router-dom";
 import accept from "../../img/accept1.png"
 import ranking from "../../img/ranking1.png"
 import cheer from "../../img/cheer.png"
+import nextImg from "../../img/next.png"
+import lastImg from "../../img/last.png"
 
 const SMeal = () => {
   const [MonthData, SetMonthData] = useState([]);
   const [TodayData, SetTodayData] = useState(null);
-  const [Next, SetNext] = useState(null);
-
+  const [Next, SetNext] = useState(1);
+  const [Permission,setPermission] = useState(0);
   var hours
-
   const timeChecker = (timeIdx) => {
     const rangeArr = [
       [19, 25],
@@ -28,21 +29,39 @@ const SMeal = () => {
   }
 
   useEffect(() => {
-    const month = new Date().getMonth();
+    const month = new Date().getMonth()
     axios
       .get(`${apiConfig.API_ENDPOINT}/openapi/schoolmenu?month=${month+1}`)
       .then((result) => {
-
         const menuList = result.data.body;
-        SetNext(hours > 19 ? 0 : 1)
         const date = new Date().getDate()
         console.log(date)
-        const todayMenu = menuList[date - 1]; // 배열이므로 -1
+        const todayMenu = menuList[date - Next]; // 배열이므로 -1
         console.log(todayMenu);
         SetTodayData(todayMenu);
         SetMonthData(result.data.body);
-      })
-  }, []);
+      });
+  }, [Next]);
+
+
+  (function permissionCheck(){
+    axios.get(`${apiConfig.API_ENDPOINT}/api/users/me`,{
+      headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
+  }).then(e=>{
+    setPermission(e.data.permission)
+  }).catch(e=>{
+      console.log(e)
+  })
+  })()
+
+  const nextClick=()=>{
+    SetNext(Next-1)
+    console.log(Next)
+  }
+  
+  const lastClick=()=>{
+    SetNext(Next+1)
+  }
 
   return (
     <div className="Meal">
@@ -50,6 +69,11 @@ const SMeal = () => {
         <div className="menu front">
           <h1>오늘의 급식</h1>
           <p>빠르게 급식을 확인하세요</p>
+          <div className="menuChangeBtn">
+          <button  onClick={lastClick}><img  src={lastImg} style={{width:"30px",height:"30px",}}/></button>
+          <button onClick={nextClick}><img src={nextImg} style={{width:"30px",height:"30px"}}></img></button>
+          </div>
+
           {TodayData == null ? (
             <p>로딩 중..</p>
           ) : (
@@ -112,6 +136,11 @@ const SMeal = () => {
             </div>
           </Link>
         </div>
+        {Permission === 1?
+          <Link to="/checkreview" style={{color:"#5FBEBB",position:"absolute",top:"680px",left:"1350px"}}><h2>급식리뷰 확인하기</h2></Link>
+          :
+          <Link to="/eval" style={{color:"#5FBEBB",position:"absolute",top:"680px",left:"1350px"}}><h2>오늘 급식은 어땠나요?</h2></Link>
+      }
       </div>
     </div>
   );

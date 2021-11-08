@@ -7,7 +7,6 @@ import ReqCom from "./ReqCom";
 import "../../../styles/RMeal.css";
 import apiConfig from "../../../config/apiConfig";
 import Axios from 'axios'
-import { logDOM } from "@testing-library/react";
 
 const Div = styled.div`
   width: 100%;

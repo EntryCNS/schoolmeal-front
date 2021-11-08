@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import apiConfig from "../../../config/apiConfig";
 import axios from "axios";
 import "../../../styles/Cheermodal.css"
-import { ThemeConsumer } from "styled-components";
 
 
 const Cheermodal = ({ handleModalClose, Show ,lodeMore}) => {

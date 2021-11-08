@@ -17,7 +17,7 @@ const ReqCom = memo(({ index, LIKE, UNLIKE }) => {
     axios.post(`${apiConfig.API_ENDPOINT}/api/menus/${index.id}/like`, {}, {
       headers: { 'x-access-token': `Bearer ${localStorage.getItem("jwtAccessToken")}` }
     }).then((e) => {
-      // window.location.reload();
+      window.location.reload();
       console.log(e)
     }).catch(() => {
       swal("이미 투표하셨습니다");

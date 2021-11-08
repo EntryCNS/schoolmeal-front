@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 
 const EvalNav = ({ state, setState }) => {
   return (
@@ -15,9 +17,12 @@ const EvalNav = ({ state, setState }) => {
         <hr
           style={{ width: "450px", height: "3px", backgroundColor: "white" }}
         />
+        <NavLink to="/">
         <h1 style={{ color: "white", fontSize: "70px", marginTop: "25px" }}>
           급식의 민족
         </h1>
+        </NavLink>
+
         <p style={{ color: "white", fontSize: "35px", marginTop: "5px" }}>
           오늘의 급식 리뷰
         </p>

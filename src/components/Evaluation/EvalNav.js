@@ -16,7 +16,7 @@ const EvalNav = ({ state, setState }) => {
         <hr
           style={{ width: "450px", height: "3px", backgroundColor: "white" }}
         />
-        <Link>
+        <Link to="/">
         <h1 style={{ color: "white", fontSize: "70px", marginTop: "25px" }}>
           급식의 민족
         </h1>

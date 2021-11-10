@@ -14,7 +14,10 @@ const SMeal = () => {
   const [TodayData, SetTodayData] = useState(null);
   const [Next, SetNext] = useState(1);
   const [Permission,setPermission] = useState(0);
+  const [day,setDay] = useState(10);
   var hours
+  var month=11
+
   const timeChecker = (timeIdx) => {
     const rangeArr = [
       [19, 25],
@@ -56,10 +59,13 @@ const SMeal = () => {
 
   const nextClick=()=>{
     SetNext(Next-1)
-    console.log(Next)
+    setDay(day+=1)
+    console.log(Next,day)
   }
   
   const lastClick=()=>{
+    day-=1;
+    setDay(day-=1);
     SetNext(Next+1)
   }
 
@@ -69,6 +75,7 @@ const SMeal = () => {
         <div className="menu front">
           <h1>오늘의 급식</h1>
           <p>빠르게 급식을 확인하세요</p>
+          <h3>{month}월 {day}일</h3>
           <div className="menuChangeBtn">
           <button  onClick={lastClick}><img  src={lastImg} style={{width:"30px",height:"30px",}}/></button>
           <button onClick={nextClick}><img src={nextImg} style={{width:"30px",height:"30px"}}></img></button>

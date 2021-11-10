@@ -144,9 +144,9 @@ const SMeal = () => {
           </Link>
         </div>
         {Permission === 1?
-          <Link to="/checkreview" style={{color:"#5FBEBB",position:"absolute",top:"680px",left:"1350px"}}><h2>급식리뷰 확인하기</h2></Link>
+          <Link to="/checkreview" style={{color:"#5FBEBB",position:"absolute",top:"86%",left:"66%"}}><h2>급식리뷰 확인하기</h2></Link>
           :
-          <Link to="/eval" style={{color:"#5FBEBB",position:"absolute",top:"680px",left:"1350px"}}><h2>오늘 급식은 어땠나요?</h2></Link>
+          <Link to="/eval" style={{color:"#5FBEBB",position:"absolute",top:"86%",left:"66%"}}><h2>오늘 급식은 어땠나요?</h2></Link>
       }
       </div>
     </div>
